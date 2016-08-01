@@ -1,0 +1,457 @@
+
+
+00102fb8 g     F .text	00000318 arm_cmplx_mult_cmplx_f32_dot5a
+; end 0010 32d0 
+
+00001000 g     O .ocm_low	00004000 gf_array_src_a
+00005000 g     O .ocm_low	00004000 gf_array_src_b
+00009070 g     O .ocm_low	00000008 gf_sum_dsp_concept5a
+
+
+00102fb8 <arm_cmplx_mult_cmplx_f32_dot5a>:
+
+  102fb8:	e92d00f0 	push	{r4, r5, r6, r7}
+
+  102fbc:	e1b071a0 	lsrs	r7, r0, #3   ; r0:numSamples;  r7:blkCnt
+
+  102fc0:	f2c0c050 	vmov.i32	q14, #0	; 0x00000000 q14 = 0
+
+  102fc4:	ed2d8b0a 	vpush	{d8-d12}
+  102fc8:	e24dd020 	sub	sp, sp, #32
+
+  /*
+	This instruction performs a bitwise OR operation between two registers, and 
+	places the result in the destination 
+	register. The operand and result registers can be quadword or doubleword. 
+  */
+  102fcc:	f22c41fc 	vorr	q2, q14, q14 ; q2 = 0 
+  102fd0:	f22c61fc 	vorr	q3, q14, q14 ; q3 = 0 
+  102fd4:	f26ce1fc 	vorr	q15, q14, q14 ; q15 = 0 
+
+/*
+  1032c4:	00000000 	.word	0x00000000
+  1032c8:	00001010 	.word	0x00001010
+  1032cc:	00005010 	.word	0x00005010
+*/
+
+  102fd8:	0a0000ad 	beq	103294 <arm_cmplx_mult_cmplx_f32_dot5a+0x2dc>
+  102fdc:	e59f22e4 	ldr	r2, [pc, #740]	; 1032c8 <arm_cmplx_mult_cmplx_f32_dot5a+0x310>
+  102fe0:	e1a0c007 	mov	ip, r7
+  102fe4:	e59f32e0 	ldr	r3, [pc, #736]	; 1032cc <arm_cmplx_mult_cmplx_f32_dot5a+0x314>
+	; r2 = 0x1010; r3 = 0x5010
+	
+  102fe8:	e1a01003 	mov	r1, r3       ; r1 = 0x5010;
+  102fec:	e2426010 	sub	r6, r2, #16  ; r6 = 0x1000;
+  102ff0:	e2435010 	sub	r5, r3, #16  ; r5 = 0x5000;
+  102ff4:	f4626a8f 	vld1.32	{d22-d23}, [r2]
+  102ff8:	e2834020 	add	r4, r3, #32
+  102ffc:	e25cc001 	subs	ip, ip, #1
+  103000:	f4610a8d 	vld1.32	{d16-d17}, [r1]!
+  103004:	e2822040 	add	r2, r2, #64	; 0x40
+  103008:	e2833040 	add	r3, r3, #64	; 0x40
+  10300c:	f4662a8f 	vld1.32	{d18-d19}, [r6]
+  103010:	f4654a8f 	vld1.32	{d20-d21}, [r5]
+
+  103014:	f3fa2166 	vuzp.32	q9, q11   ; q9 = d18, d19
+  103018:	f3fa4160 	vuzp.32	q10, q8   ; q10 = d20, d21
+
+  10301c:	f4618a8f 	vld1.32	{d24-d25}, [r1]
+
+  103020:	f242cdf4 	vmla.f32	q14, q9, q10
+
+  103024:	f464aa8f 	vld1.32	{d26-d27}, [r4]
+
+  103028:	f2064df0 	vmla.f32	q2, q11, q8
+
+  10302c:	f3fa816a 	vuzp.32	q12, q13
+  103030:	eccd8b04 	vstmia	sp, {d24-d25}
+  103034:	edcdab04 	vstr	d26, [sp, #16]
+  103038:	edcdbb06 	vstr	d27, [sp, #24]
+
+  10303c:	f2066df4 	vmla.f32	q3, q11, q10
+  103040:	f242edf0 	vmla.f32	q15, q9, q8
+  103044:	1affffe7 	bne	102fe8 <arm_cmplx_mult_cmplx_f32_dot5a+0x30>
+
+  103048:	e1a03307 	lsl	r3, r7, #6
+  10304c:	e3012000 	movw	r2, #4096	; 0x1000
+  103050:	e3051000 	movw	r1, #20480	; 0x5000
+  103054:	e3402000 	movt	r2, #0
+  103058:	e3401000 	movt	r1, #0
+  10305c:	e0832002 	add	r2, r3, r2
+  103060:	e0833001 	add	r3, r3, r1
+
+
+  103064:	e2100007 	ands	r0, r0, #7
+
+  103068:	f22c4dc4 	vsub.f32	q2, q14, q2
+
+  10306c:	f2066d6e 	vadd.f32	q3, q3, q15
+  103070:	0a00008c 	beq	1032a8 <arm_cmplx_mult_cmplx_f32_dot5a+0x2f0>
+  103074:	e1a01120 	lsr	r1, r0, #2
+
+  103078:	e221c001 	eor	ip, r1, #1
+  10307c:	e1a06101 	lsl	r6, r1, #2
+  103080:	e3500003 	cmp	r0, #3
+  103084:	938cc001 	orrls	ip, ip, #1
+  103088:	e35c0000 	cmp	ip, #0
+  10308c:	1a000088 	bne	1032b4 <arm_cmplx_mult_cmplx_f32_dot5a+0x2fc>
+
+  103094:	e1a01281 	lsl	r1, r1, #5
+  103098:	f2c08050 	vmov.i32	q12, #0	; 0x00000000
+  10309c:	e1500006 	cmp	r0, r6
+
+  1030a0:	f463438f 	vld2.32	{d20-d23}, [r3]
+  1030a4:	e0822001 	add	r2, r2, r1
+  1030a8:	e0833001 	add	r3, r3, r1
+  1030ac:	e0666000 	rsb	r6, r6, r0
+  1030b0:	f264c1f4 	vorr	q14, q10, q10
+  1030b4:	f266a1f6 	vorr	q13, q11, q11
+
+  1030b8:	f3444df0 	vmul.f32	q10, q10, q8
+
+  1030bc:	f3466df0 	vmul.f32	q11, q11, q8
+  1030c0:	f26801f8 	vorr	q8, q12, q12
+
+  1030c4:	f26a4df2 	vmls.f32	q10, q13, q9
+
+  1030c8:	f24c6df2 	vmla.f32	q11, q14, q9
+  1030cc:	f2444da5 	vadd.f32	d20, d20, d21
+  1030d0:	f2466da7 	vadd.f32	d22, d22, d23
+  1030d4:	f3440da4 	vpadd.f32	d16, d20, d20
+  1030d8:	f3468da6 	vpadd.f32	d24, d22, d22
+  1030dc:	ee107b90 	vmov.32	r7, d16[0]
+  1030e0:	ee181b90 	vmov.32	r1, d24[0]
+  1030e4:	ee027a10 	vmov	s4, r7
+  1030e8:	ee021a90 	vmov	s5, r1
+  1030ec:	0a000044 	beq	103204 <arm_cmplx_mult_cmplx_f32_dot5a+0x24c>
+
+  1030f0:	e2461001 	sub	r1, r6, #1
+  1030f4:	e3510003 	cmp	r1, #3
+  1030f8:	9a000063 	bls	10328c <arm_cmplx_mult_cmplx_f32_dot5a+0x2d4>
+  1030fc:	e2820020 	add	r0, r2, #32
+  103100:	e283c020 	add	ip, r3, #32
+  103104:	e282501c 	add	r5, r2, #28
+  103108:	e283401c 	add	r4, r3, #28
+
+  10310c:	ed503a08 	vldr	s7, [r0, #-32]	; 0xffffffe0
+  103110:	e2463005 	sub	r3, r6, #5
+
+  103114:	ed1c1a08 	vldr	s2, [ip, #-32]	; 0xffffffe0
+  103118:	f5d0f040 	pld	[r0, #64]	; 0x40
+
+  10311c:	ed54ba06 	vldr	s23, [r4, #-24]	; 0xffffffe8
+
+  103120:	e1a02000 	mov	r2, r0
+
+  103124:	ed501a06 	vldr	s3, [r0, #-24]	; 0xffffffe8
+  103128:	e3530003 	cmp	r3, #3
+
+  10312c:	ed1cca06 	vldr	s24, [ip, #-24]	; 0xffffffe8
+
+  103130:	e1a0300c 	mov	r3, ip
+
+  103134:	ed15ba06 	vldr	s22, [r5, #-24]	; 0xffffffe8
+  103138:	e2800020 	add	r0, r0, #32
+
+  10313c:	ee213a23 	vmul.f32	s6, s2, s7
+  103140:	e28cc020 	add	ip, ip, #32
+
+  103144:	ee6b3aa3 	vmul.f32	s7, s23, s7
+
+  103148:	e1a07004 	mov	r7, r4
+  10314c:	ed14aa04 	vldr	s20, [r4, #-16]
+
+  103150:	e2461004 	sub	r1, r6, #4
+
+  103154:	ed50aa0c 	vldr	s21, [r0, #-48]	; 0xffffffd0
+
+  103158:	e1a06001 	mov	r6, r1
+
+  10315c:	ee0c3a21 	vmla.f32	s6, s24, s3
+
+  103160:	e2844020 	add	r4, r4, #32
+
+  103164:	ee413a0b 	vmla.f32	s7, s2, s22
+
+  103168:	ed1c9a0c 	vldr	s18, [ip, #-48]	; 0xffffffd0
+
+  10316c:	ed559a04 	vldr	s19, [r5, #-16]
+
+  103170:	ed100a0a 	vldr	s0, [r0, #-40]	; 0xffffffd8
+
+  103174:	ed1c1a0a 	vldr	s2, [ip, #-40]	; 0xffffffd8
+
+  103178:	ee093a2a 	vmla.f32	s6, s18, s21
+
+  10317c:	ee4a3a21 	vmla.f32	s7, s20, s3
+
+  103180:	ed548a0a 	vldr	s17, [r4, #-40]	; 0xffffffd8
+
+  103184:	ed158a02 	vldr	s16, [r5, #-8]
+
+  103188:	edd70a00 	vldr	s1, [r7]
+
+  10318c:	e1a07005 	mov	r7, r5
+  103190:	edd71a00 	vldr	s3, [r7]
+  103194:	e2855020 	add	r5, r5, #32
+
+  103198:	ee013a00 	vmla.f32	s6, s2, s0
+
+  10319c:	ee4c3a29 	vmla.f32	s7, s24, s19
+
+  1031a0:	ee0b3acb 	vmls.f32	s6, s23, s22
+
+  1031a4:	ee483aaa 	vmla.f32	s7, s17, s21
+
+  1031a8:	ee0a3a69 	vmls.f32	s6, s20, s19
+
+  1031ac:	ee493a08 	vmla.f32	s7, s18, s16
+
+  1031b0:	ee083ac8 	vmls.f32	s6, s17, s16
+
+  1031b4:	ee403a80 	vmla.f32	s7, s1, s0
+
+  1031b8:	ee003ae1 	vmls.f32	s6, s1, s3
+
+  1031bc:	ee413a21 	vmla.f32	s7, s2, s3
+
+  1031c0:	ee322a03 	vadd.f32	s4, s4, s6
+
+  1031c4:	ee722aa3 	vadd.f32	s5, s5, s7
+  1031c8:	8affffcf 	bhi	10310c <arm_cmplx_mult_cmplx_f32_dot5a+0x154>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  1031cc:	e2833008 	add	r3, r3, #8
+  sum_img =0;
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+  1031d0:	edd20a00 	vldr	s1, [r2]
+    b = *pSrcA++;
+  1031d4:	ed921a01 	vldr	s2, [r2, #4]
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  1031d8:	e2511001 	subs	r1, r1, #1
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+  1031dc:	ed533a01 	vldr	s7, [r3, #-4]
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot5a(
+  1031e0:	e2822008 	add	r2, r2, #8
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+  1031e4:	ed531a02 	vldr	s3, [r3, #-8]
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  1031e8:	ee213a23 	vmul.f32	s6, s2, s7
+    sum_img += ((a * d) + (b * c));
+  1031ec:	ee603aa3 	vmul.f32	s7, s1, s7
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  1031f0:	ee103aa1 	vnmls.f32	s6, s1, s3
+    sum_img += ((a * d) + (b * c));
+  1031f4:	ee413a21 	vmla.f32	s7, s2, s3
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  1031f8:	ee322a03 	vadd.f32	s4, s4, s6
+    sum_img += ((a * d) + (b * c));
+  1031fc:	ee722aa3 	vadd.f32	s5, s5, s7
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  103200:	1afffff1 	bne	1031cc <arm_cmplx_mult_cmplx_f32_dot5a+0x214>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  103204:	f2044d44 	vadd.f32	q2, q2, q2
+	sum_real += vgetq_lane_f32(out1.val[0], 0) + vgetq_lane_f32(out1.val[0], 1)
+		+ vgetq_lane_f32(out1.val[0], 2) + vgetq_lane_f32(out1.val[0], 3);
+	sum_img += vgetq_lane_f32(out1.val[1], 0) + vgetq_lane_f32(out1.val[1], 1)
+		+ vgetq_lane_f32(out1.val[1], 2) + vgetq_lane_f32(out1.val[1], 3);
+
+	*pDst++=sum_real;
+  103208:	e3093020 	movw	r3, #36896	; 0x9020
+  10320c:	f2066d46 	vadd.f32	q3, q3, q3
+  103210:	e3403000 	movt	r3, #0
+}
+
+__extension__ static __inline float32_t __attribute__ ((__always_inline__))
+vgetq_lane_f32 (float32x4_t __a, const int __b)
+{
+  return (float32_t)__builtin_neon_vget_lanev4sf (__a, __b, 3);
+  103214:	ee141b10 	vmov.32	r1, d4[0]
+  103218:	ee167b10 	vmov.32	r7, d6[0]
+  10321c:	ee342b10 	vmov.32	r2, d4[1]
+  103220:	ee031a10 	vmov	s6, r1
+  103224:	ee361b10 	vmov.32	r1, d6[1]
+  103228:	ee037a90 	vmov	s7, r7
+  10322c:	ee012a10 	vmov	s2, r2
+  103230:	ee011a90 	vmov	s3, r1
+
+	/* add 4 accumulators */
+	out1.val[0] = vaddq_f32(out1.val[0], out2.val[0]);
+	out1.val[1] = vaddq_f32(out1.val[1], out2.val[1]);
+
+	sum_real += vgetq_lane_f32(out1.val[0], 0) + vgetq_lane_f32(out1.val[0], 1)
+  103234:	ee313a03 	vadd.f32	s6, s2, s6
+		+ vgetq_lane_f32(out1.val[0], 2) + vgetq_lane_f32(out1.val[0], 3);
+	sum_img += vgetq_lane_f32(out1.val[1], 0) + vgetq_lane_f32(out1.val[1], 1)
+  103238:	ee713aa3 	vadd.f32	s7, s3, s7
+  10323c:	ee152b10 	vmov.32	r2, d5[0]
+  103240:	ee177b10 	vmov.32	r7, d7[0]
+  103244:	ee012a10 	vmov	s2, r2
+  103248:	ee017a90 	vmov	s3, r7
+	/* add 4 accumulators */
+	out1.val[0] = vaddq_f32(out1.val[0], out2.val[0]);
+	out1.val[1] = vaddq_f32(out1.val[1], out2.val[1]);
+
+	sum_real += vgetq_lane_f32(out1.val[0], 0) + vgetq_lane_f32(out1.val[0], 1)
+		+ vgetq_lane_f32(out1.val[0], 2) + vgetq_lane_f32(out1.val[0], 3);
+  10324c:	ee333a01 	vadd.f32	s6, s6, s2
+	sum_img += vgetq_lane_f32(out1.val[1], 0) + vgetq_lane_f32(out1.val[1], 1)
+		+ vgetq_lane_f32(out1.val[1], 2) + vgetq_lane_f32(out1.val[1], 3);
+  103250:	ee733aa1 	vadd.f32	s7, s7, s3
+  103254:	ee351b10 	vmov.32	r1, d5[1]
+  103258:	ee372b10 	vmov.32	r2, d7[1]
+  10325c:	ee041a10 	vmov	s8, r1
+  103260:	ee062a10 	vmov	s12, r2
+	/* add 4 accumulators */
+	out1.val[0] = vaddq_f32(out1.val[0], out2.val[0]);
+	out1.val[1] = vaddq_f32(out1.val[1], out2.val[1]);
+
+	sum_real += vgetq_lane_f32(out1.val[0], 0) + vgetq_lane_f32(out1.val[0], 1)
+		+ vgetq_lane_f32(out1.val[0], 2) + vgetq_lane_f32(out1.val[0], 3);
+  103264:	ee334a04 	vadd.f32	s8, s6, s8
+	sum_img += vgetq_lane_f32(out1.val[1], 0) + vgetq_lane_f32(out1.val[1], 1)
+		+ vgetq_lane_f32(out1.val[1], 2) + vgetq_lane_f32(out1.val[1], 3);
+  103268:	ee336a86 	vadd.f32	s12, s7, s12
+
+	/* add 4 accumulators */
+	out1.val[0] = vaddq_f32(out1.val[0], out2.val[0]);
+	out1.val[1] = vaddq_f32(out1.val[1], out2.val[1]);
+
+	sum_real += vgetq_lane_f32(out1.val[0], 0) + vgetq_lane_f32(out1.val[0], 1)
+  10326c:	ee342a02 	vadd.f32	s4, s8, s4
+		+ vgetq_lane_f32(out1.val[0], 2) + vgetq_lane_f32(out1.val[0], 3);
+	sum_img += vgetq_lane_f32(out1.val[1], 0) + vgetq_lane_f32(out1.val[1], 1)
+  103270:	ee762a22 	vadd.f32	s5, s12, s5
+		+ vgetq_lane_f32(out1.val[1], 2) + vgetq_lane_f32(out1.val[1], 3);
+
+	*pDst++=sum_real;
+  103274:	ed832a00 	vstr	s4, [r3]
+	*pDst++=sum_img;
+  103278:	edc32a01 	vstr	s5, [r3, #4]
+
+}
+  10327c:	e28dd020 	add	sp, sp, #32
+  103280:	ecbd8b0a 	vpop	{d8-d12}
+  103284:	e8bd00f0 	pop	{r4, r5, r6, r7}
+  103288:	e12fff1e 	bx	lr
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot5a(
+  10328c:	e1a01006 	mov	r1, r6
+  103290:	eaffffcd 	b	1031cc <arm_cmplx_mult_cmplx_f32_dot5a+0x214>
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  pSrcB = gf_array_src_b;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  103294:	e3053000 	movw	r3, #20480	; 0x5000
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  103298:	e3012000 	movw	r2, #4096	; 0x1000
+  pSrcB = gf_array_src_b;
+  10329c:	e3403000 	movt	r3, #0
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  1032a0:	e3402000 	movt	r2, #0
+  1032a4:	eaffff6e 	b	103064 <arm_cmplx_mult_cmplx_f32_dot5a+0xac>
+  blkCnt = numSamples & 7u;
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  1032a8:	eddf2a05 	vldr	s5, [pc, #20]	; 1032c4 <arm_cmplx_mult_cmplx_f32_dot5a+0x30c>
+
+  blkCnt = numSamples & 7u;
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  1032ac:	eeb02a62 	vmov.f32	s4, s5
+  1032b0:	eaffffd3 	b	103204 <arm_cmplx_mult_cmplx_f32_dot5a+0x24c>
+  sum_img =0;
+  1032b4:	eddf2a02 	vldr	s5, [pc, #8]	; 1032c4 <arm_cmplx_mult_cmplx_f32_dot5a+0x30c>
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot5a(
+  1032b8:	e1a06000 	mov	r6, r0
+
+  blkCnt = numSamples & 7u;
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  1032bc:	eeb02a62 	vmov.f32	s4, s5
+  1032c0:	eaffff8a 	b	1030f0 <arm_cmplx_mult_cmplx_f32_dot5a+0x138>
+  1032c4:	00000000 	.word	0x00000000
+  1032c8:	00001010 	.word	0x00001010
+  1032cc:	00005010 	.word	0x00005010
+
+001032d0 <sp_cmplx_vector_dot_mul>:
+

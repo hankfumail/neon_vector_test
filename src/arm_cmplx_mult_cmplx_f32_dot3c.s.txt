@@ -1,0 +1,609 @@
+
+arm_cmplx_mult_cmplx_f32_dot3c
+
+
+C:\xilinx\projects\zynq146\zc706_predefined_0902\neon_vector_498_test\Debug\src\arm_cmplx_mult_cmplx_f32_dot3c.o:     file format elf32-littlearm
+C:\xilinx\projects\zynq146\zc706_predefined_0902\neon_vector_498_test\Debug\src\arm_cmplx_mult_cmplx_f32_dot3c.o
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .group        00000008  00000000  00000000  00000034  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  1 .group        00000008  00000000  00000000  0000003c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  2 .group        00000008  00000000  00000000  00000044  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  3 .group        00000008  00000000  00000000  0000004c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  4 .group        00000008  00000000  00000000  00000054  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  5 .group        00000008  00000000  00000000  0000005c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  6 .group        00000008  00000000  00000000  00000064  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  7 .group        00000008  00000000  00000000  0000006c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  8 .group        00000008  00000000  00000000  00000074  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  9 .group        00000008  00000000  00000000  0000007c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 10 .group        00000008  00000000  00000000  00000084  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 11 .group        00000008  00000000  00000000  0000008c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 12 .group        00000008  00000000  00000000  00000094  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 13 .group        00000008  00000000  00000000  0000009c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 14 .group        00000008  00000000  00000000  000000a4  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 15 .group        00000008  00000000  00000000  000000ac  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 16 .group        00000008  00000000  00000000  000000b4  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 17 .group        00000008  00000000  00000000  000000bc  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 18 .group        00000008  00000000  00000000  000000c4  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 19 .group        00000008  00000000  00000000  000000cc  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 20 .group        00000008  00000000  00000000  000000d4  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 21 .group        00000008  00000000  00000000  000000dc  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 22 .group        00000008  00000000  00000000  000000e4  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 23 .group        00000008  00000000  00000000  000000ec  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 24 .group        00000008  00000000  00000000  000000f4  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 25 .group        00000008  00000000  00000000  000000fc  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 26 .group        00000008  00000000  00000000  00000104  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 27 .group        00000008  00000000  00000000  0000010c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 28 .group        00000008  00000000  00000000  00000114  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 29 .group        00000008  00000000  00000000  0000011c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 30 .group        00000008  00000000  00000000  00000124  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+ 31 .text         00000178  00000000  00000000  0000012c  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 32 .data         00000000  00000000  00000000  000002a4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 33 .bss          00000000  00000000  00000000  000002a4  2**0
+                  ALLOC
+ 34 .debug_info   000006f9  00000000  00000000  000002a4  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 35 .debug_abbrev 000001bd  00000000  00000000  0000099d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 36 .debug_loc    000003f8  00000000  00000000  00000b5a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 37 .debug_aranges 00000020  00000000  00000000  00000f52  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 38 .debug_ranges 000000a8  00000000  00000000  00000f72  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 39 .debug_macro  000001c2  00000000  00000000  0000101a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 40 .debug_macro  00000802  00000000  00000000  000011dc  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 41 .debug_macro  00000214  00000000  00000000  000019de  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 42 .debug_macro  0000003a  00000000  00000000  00001bf2  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 43 .debug_macro  0000002e  00000000  00000000  00001c2c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 44 .debug_macro  00000094  00000000  00000000  00001c5a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 45 .debug_macro  0000003a  00000000  00000000  00001cee  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 46 .debug_macro  00000052  00000000  00000000  00001d28  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 47 .debug_macro  00000019  00000000  00000000  00001d7a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 48 .debug_macro  0000016d  00000000  00000000  00001d93  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 49 .debug_macro  00000089  00000000  00000000  00001f00  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 50 .debug_macro  00000022  00000000  00000000  00001f89  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 51 .debug_macro  00000051  00000000  00000000  00001fab  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 52 .debug_macro  00000016  00000000  00000000  00001ffc  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 53 .debug_macro  00000012  00000000  00000000  00002012  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 54 .debug_macro  00000010  00000000  00000000  00002024  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 55 .debug_macro  00000010  00000000  00000000  00002034  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 56 .debug_macro  000000f5  00000000  00000000  00002044  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 57 .debug_macro  00000022  00000000  00000000  00002139  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 58 .debug_macro  00000091  00000000  00000000  0000215b  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 59 .debug_macro  00000016  00000000  00000000  000021ec  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 60 .debug_macro  00000171  00000000  00000000  00002202  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 61 .debug_macro  00000010  00000000  00000000  00002373  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 62 .debug_macro  00000035  00000000  00000000  00002383  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 63 .debug_macro  00000016  00000000  00000000  000023b8  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 64 .debug_macro  00000023  00000000  00000000  000023ce  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 65 .debug_macro  00000016  00000000  00000000  000023f1  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 66 .debug_macro  00000010  00000000  00000000  00002407  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 67 .debug_macro  00000016  00000000  00000000  00002417  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 68 .debug_macro  00000035  00000000  00000000  0000242d  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 69 .debug_macro  0000056e  00000000  00000000  00002462  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 70 .debug_macro  0000039e  00000000  00000000  000029d0  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 71 .debug_line   000004b6  00000000  00000000  00002d6e  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 72 .debug_str    00008601  00000000  00000000  00003224  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 73 .comment      00000032  00000000  00000000  0000b825  2**0
+                  CONTENTS, READONLY
+ 74 .ARM.attributes 0000003b  00000000  00000000  0000b857  2**0
+                  CONTENTS, READONLY
+ 75 .debug_frame  00000038  00000000  00000000  0000b894  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 arm_cmplx_mult_cmplx_f32_dot3c.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l       .group	00000000 wm4.1.a99457e3e66aab120e5332e041982317
+00000000 l       .group	00000000 wm4.stdint.h.10.90b695f550ca6cc3fb08fa83baf01e05
+00000000 l       .group	00000000 wm4.newlib.h.8.e1d498e57c12962fc6d7be5061a6981a
+00000000 l       .group	00000000 wm4.config.h.184.720a0632b4c315f4e8d8f1fee595bb41
+00000000 l       .group	00000000 wm4._ansi.h.23.95dee4059009fe3ab635a191bb73dc66
+00000000 l       .group	00000000 wm4._default_types.h.6.1dbd2e581fd590860c7c17f21d147e91
+00000000 l       .group	00000000 wm4.lock.h.2.9bc98482741e5e2a9450b12934a684ea
+00000000 l       .group	00000000 wm4.stddef.h.349.31f4c5baff3fa2689010b32028da9c47
+00000000 l       .group	00000000 wm4.reent.h.16.fbf96e140479440ec10fa8cd451b198e
+00000000 l       .group	00000000 wm4.stddef.h.187.9e651b6b8b16e149c1353259404973ea
+00000000 l       .group	00000000 wm4.string.h.17.f8d12df81104836a3f2a5d589ae830d8
+00000000 l       .group	00000000 wm4.arm_math.h.147.1ae5e92f6fa4a08bab73f0a34e9426ad
+00000000 l       .group	00000000 wm4.stdio.h.27.f2ac352bab34f31f9f478442827b2ba6
+00000000 l       .group	00000000 wm4.stddef.h.235.d9f4f80b8c4429535175712282cda6a6
+00000000 l       .group	00000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
+00000000 l       .group	00000000 wm4.types.h.23.0d949686bbcadd1621462d4fa1f884f9
+00000000 l       .group	00000000 wm4.stddef.h.40.cf962ebbec441b3ac67502735f0765db
+00000000 l       .group	00000000 wm4.types.h.2.e9cec8c90ab35f77d9f499e06ae02400
+00000000 l       .group	00000000 wm4.types.h.80.f2bfdfeee9f340633702c07fad9b5e01
+00000000 l       .group	00000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
+00000000 l       .group	00000000 wm4.stdio.h.63.9c50fc58af29fb0ccfeddc92b491c598
+00000000 l       .group	00000000 wm4.stdlib.h.18.6f6153fd5cb89acd58c0f0ab1f77e147
+00000000 l       .group	00000000 wm4.stddef.h.161.e50ff8a9d5d1abbc15641da28ac571bf
+00000000 l       .group	00000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
+00000000 l       .group	00000000 wm4.stdlib.h.58.3943707ca024393181a6211b2c8a1625
+00000000 l       .group	00000000 wm4.platform_config.h.2.2fdf79f0d9759935495e52d1498ab49c
+00000000 l       .group	00000000 wm4.time.h.2.9857e62ad6ac99431e29d58067232314
+00000000 l       .group	00000000 wm4.time.h.33.7f5d132454e7bf35c22009dbda1491ee
+00000000 l       .group	00000000 wm4.time.h.137.eff5fc643331f01e7222ffccc2dd38e2
+00000000 l       .group	00000000 wm4.xparameters_ps.h.64.245a488b35485a680851a4a0121eb778
+00000000 l       .group	00000000 wm4.xparameters.h.17.5ed6a72996591ee88415d05bf31cbc6b
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 l    d  .group	00000000 .group
+00000000 g     F .text	00000178 arm_cmplx_mult_cmplx_f32_dot3c
+00000000         *UND*	00000000 gf_array_src_b
+00000000         *UND*	00000000 gf_array_src_a
+00000000         *UND*	00000000 gf_sum_dsp_concept3c
+
+
+
+Disassembly of section .text:
+
+00000000 <arm_cmplx_mult_cmplx_f32_dot3c>:
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot3c(
+  unsigned int numSamples )
+{
+   0:	e92d07f0 	push	{r4, r5, r6, r7, r8, r9, sl}
+  blkCnt = numSamples >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+   4:	e1b09120 	lsrs	r9, r0, #2
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vdupq_n_f32 (float32_t __a)
+{
+  return (float32x4_t)__builtin_neon_vdup_nv4sf ((__builtin_neon_sf) __a);
+   8:	f2c08050 	vmov.i32	q12, #0	; 0x00000000
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot3c(
+  unsigned int numSamples )
+{
+   c:	e24dd074 	sub	sp, sp, #116	; 0x74
+  10:	f268e1f8 	vorr	q15, q12, q12
+  14:	f268c1f8 	vorr	q14, q12, q12
+  18:	f268a1f8 	vorr	q13, q12, q12
+  blkCnt = numSamples >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+  1c:	0a000036 	beq	fc <arm_cmplx_mult_cmplx_f32_dot3c+0xfc>
+  20:	e300a000 	movw	sl, #0
+			20: R_ARM_MOVW_ABS_NC	gf_array_src_b
+  24:	e300c000 	movw	ip, #0
+			24: R_ARM_MOVW_ABS_NC	gf_array_src_a
+  28:	e340a000 	movt	sl, #0
+			28: R_ARM_MOVT_ABS	gf_array_src_b
+  2c:	e340c000 	movt	ip, #0
+			2c: R_ARM_MOVT_ABS	gf_array_src_a
+
+__extension__ static __inline float32x4x2_t __attribute__ ((__always_inline__))
+vld2q_f32 (const float32_t * __a)
+{
+  union { float32x4x2_t __i; __builtin_neon_oi __o; } __rv;
+  __rv.__o = __builtin_neon_vld2v4sf ((const __builtin_neon_sf *) __a);
+  30:	f46c038d 	vld2.32	{d16-d19}, [ip]!
+  34:	eccd0b08 	vstmia	sp, {d16-d19}
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  38:	e59d4000 	ldr	r4, [sp]
+  3c:	e28d2020 	add	r2, sp, #32
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  40:	e59d7010 	ldr	r7, [sp, #16]
+  blkCnt = numSamples >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+  44:	e2599001 	subs	r9, r9, #1
+  48:	f46a038d 	vld2.32	{d16-d19}, [sl]!
+  4c:	ecc20b08 	vstmia	r2, {d16-d19}
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  50:	e59d5004 	ldr	r5, [sp, #4]
+  54:	e1a00004 	mov	r0, r4
+  58:	e59d8020 	ldr	r8, [sp, #32]
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  5c:	e59d6030 	ldr	r6, [sp, #48]	; 0x30
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  60:	e59d4024 	ldr	r4, [sp, #36]	; 0x24
+  64:	e1a01005 	mov	r1, r5
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  68:	e58d7050 	str	r7, [sp, #80]	; 0x50
+  6c:	e59d7034 	ldr	r7, [sp, #52]	; 0x34
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  70:	e58d8040 	str	r8, [sp, #64]	; 0x40
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  74:	e58d6060 	str	r6, [sp, #96]	; 0x60
+  78:	e59d8014 	ldr	r8, [sp, #20]
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  7c:	e59d6008 	ldr	r6, [sp, #8]
+  80:	e59d5028 	ldr	r5, [sp, #40]	; 0x28
+  84:	e58d4044 	str	r4, [sp, #68]	; 0x44
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  88:	e59d4018 	ldr	r4, [sp, #24]
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  8c:	e1a02006 	mov	r2, r6
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  90:	e58d7064 	str	r7, [sp, #100]	; 0x64
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  94:	e59d700c 	ldr	r7, [sp, #12]
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  98:	e58d8054 	str	r8, [sp, #84]	; 0x54
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  9c:	e58d5048 	str	r5, [sp, #72]	; 0x48
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  a0:	e58d4058 	str	r4, [sp, #88]	; 0x58
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  a4:	e1a03007 	mov	r3, r7
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  a8:	e59d8038 	ldr	r8, [sp, #56]	; 0x38
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  ac:	e59d602c 	ldr	r6, [sp, #44]	; 0x2c
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  b0:	e59d501c 	ldr	r5, [sp, #28]
+  b4:	e59d403c 	ldr	r4, [sp, #60]	; 0x3c
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  b8:	ec410b32 	vmov	d18, r0, r1
+  bc:	ec432b33 	vmov	d19, r2, r3
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  c0:	e58d8068 	str	r8, [sp, #104]	; 0x68
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  c4:	e58d604c 	str	r6, [sp, #76]	; 0x4c
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  c8:	e58d505c 	str	r5, [sp, #92]	; 0x5c
+	
+	    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+	    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+	    /* multiply 4 samples at a time from A1 real input with B1 real input */
+		//C1 = vmulq_f32(out1.val[0], out2.val[0]);
+		C1 = vmlaq_f32(C1, out1.val[0], out2.val[0]);
+  cc:	eddd4b10 	vldr	d20, [sp, #64]	; 0x40
+  d0:	eddd5b12 	vldr	d21, [sp, #72]	; 0x48
+	    /* multiply 4 samples at a time from A1 imaginary input with B1 imaginary input */
+	    //C2 = vmulq_f32(out1.val[1], out2.val[1]);
+	    C2 = vmlaq_f32(C2, out1.val[1], out2.val[1]);
+  d4:	e58d406c 	str	r4, [sp, #108]	; 0x6c
+  d8:	eddd6b14 	vldr	d22, [sp, #80]	; 0x50
+  dc:	eddd7b16 	vldr	d23, [sp, #88]	; 0x58
+  e0:	eddd0b18 	vldr	d16, [sp, #96]	; 0x60
+  e4:	eddd1b1a 	vldr	d17, [sp, #104]	; 0x68
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vmlaq_f32 (float32x4_t __a, float32x4_t __b, float32x4_t __c)
+{
+  return (float32x4_t)__builtin_neon_vmlav4sf (__a, __b, __c, 3);
+  e8:	f2428df4 	vmla.f32	q12, q9, q10
+  ec:	f246edf0 	vmla.f32	q15, q11, q8
+  f0:	f246cdf4 	vmla.f32	q14, q11, q10
+  f4:	f242adf0 	vmla.f32	q13, q9, q8
+  blkCnt = numSamples >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+  f8:	1affffcc 	bne	30 <arm_cmplx_mult_cmplx_f32_dot3c+0x30>
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vsubq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vsubv4sf (__a, __b, 3);
+  fc:	f2688dee 	vsub.f32	q12, q12, q15
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+
+	*pDst++=sum_real;
+ 100:	e3003000 	movw	r3, #0
+			100: R_ARM_MOVW_ABS_NC	gf_sum_dsp_concept3c
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vaddq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vaddv4sf (__a, __b, 3);
+ 104:	f24cadea 	vadd.f32	q13, q14, q13
+ 108:	e3403000 	movt	r3, #0
+			108: R_ARM_MOVT_ABS	gf_sum_dsp_concept3c
+}
+
+__extension__ static __inline float32_t __attribute__ ((__always_inline__))
+vgetq_lane_f32 (float32x4_t __a, const int __b)
+{
+  return (float32_t)__builtin_neon_vget_lanev4sf (__a, __b, 3);
+ 10c:	ee182b90 	vmov.32	r2, d24[0]
+ 110:	ee072a10 	vmov	s14, r2
+ 114:	ee382b90 	vmov.32	r2, d24[1]
+ 118:	ee062a10 	vmov	s12, r2
+ 11c:	ee1a2b90 	vmov.32	r2, d26[0]
+  /* add real*imaginary result with imaginary*real result 4 at a time */
+  out1.val[1] = vaddq_f32(C3, C4);
+  acc1.val[0] = vaddq_f32(out1.val[0], acc1.val[0]);  /* add by Hank */
+  acc1.val[1] = vaddq_f32(out1.val[1], acc1.val[1]); /* add by Hank */
+
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+ 120:	ee367a07 	vadd.f32	s14, s12, s14
+ 124:	ee072a90 	vmov	s15, r2
+ 128:	ee3a2b90 	vmov.32	r2, d26[1]
+ 12c:	ee062a90 	vmov	s13, r2
+ 130:	ee192b90 	vmov.32	r2, d25[0]
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+ 134:	ee767aa7 	vadd.f32	s15, s13, s15
+ 138:	ee062a10 	vmov	s12, r2
+ 13c:	ee1b2b90 	vmov.32	r2, d27[0]
+  out1.val[1] = vaddq_f32(C3, C4);
+  acc1.val[0] = vaddq_f32(out1.val[0], acc1.val[0]);  /* add by Hank */
+  acc1.val[1] = vaddq_f32(out1.val[1], acc1.val[1]); /* add by Hank */
+
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+ 140:	ee377a06 	vadd.f32	s14, s14, s12
+ 144:	ee062a90 	vmov	s13, r2
+ 148:	ee392b90 	vmov.32	r2, d25[1]
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+ 14c:	ee777aa6 	vadd.f32	s15, s15, s13
+ 150:	ee062a10 	vmov	s12, r2
+ 154:	ee3b2b90 	vmov.32	r2, d27[1]
+  /* add real*imaginary result with imaginary*real result 4 at a time */
+  out1.val[1] = vaddq_f32(C3, C4);
+  acc1.val[0] = vaddq_f32(out1.val[0], acc1.val[0]);  /* add by Hank */
+  acc1.val[1] = vaddq_f32(out1.val[1], acc1.val[1]); /* add by Hank */
+
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+ 158:	ee377a06 	vadd.f32	s14, s14, s12
+ 15c:	ee062a90 	vmov	s13, r2
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+ 160:	ee777aa6 	vadd.f32	s15, s15, s13
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+
+	*pDst++=sum_real;
+ 164:	ed837a00 	vstr	s14, [r3]
+	*pDst++=sum_img;
+ 168:	edc37a01 	vstr	s15, [r3, #4]
+
+}
+ 16c:	e28dd074 	add	sp, sp, #116	; 0x74
+ 170:	e8bd07f0 	pop	{r4, r5, r6, r7, r8, r9, sl}
+ 174:	e12fff1e 	bx	lr

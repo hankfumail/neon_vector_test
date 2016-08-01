@@ -1,0 +1,459 @@
+
+C:\xilinx\projects\zynq146\zc706_predefined_0902\neon_vector_498_test\Debug\
+src\arm_cmplx_mult_cmplx_f32_dot4.o:     file format elf32-littlearm
+
+C:\xilinx\projects\zynq146\zc706_predefined_0902\neon_vector_498_test\Debug\
+src\arm_cmplx_mult_cmplx_f32_dot4.o
+
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+
+00000000 g     F .text	000001a4 arm_cmplx_mult_cmplx_f32_dot4
+00000000         *UND*	00000000 gf_array_src_b
+00000000         *UND*	00000000 gf_array_src_a
+00000000         *UND*	00000000 gf_sum_dsp_concept4
+
+
+
+Disassembly of section .text:
+
+00000000 <arm_cmplx_mult_cmplx_f32_dot4>:
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot4(
+  unsigned int numSamples )
+{
+   0:	e92d01f0 	push	{r4, r5, r6, r7, r8}
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  pSrcB = gf_array_src_b;
+   4:	e300c000 	movw	ip, #0
+			4: R_ARM_MOVW_ABS_NC	gf_array_src_b
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+   8:	e3004000 	movw	r4, #0
+			8: R_ARM_MOVW_ABS_NC	gf_array_src_a
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+   c:	e3500000 	cmp	r0, #0
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  10:	e3404000 	movt	r4, #0
+			10: R_ARM_MOVT_ABS	gf_array_src_a
+  pSrcB = gf_array_src_b;
+  14:	e340c000 	movt	ip, #0
+			14: R_ARM_MOVT_ABS	gf_array_src_b
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot4(
+  unsigned int numSamples )
+{
+  18:	ed2d8b04 	vpush	{d8-d9}
+  1c:	e24dd00c 	sub	sp, sp, #12
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  20:	edd46a00 	vldr	s13, [r4]
+  pSrcB = gf_array_src_b;
+  24:	ed9c6a00 	vldr	s12, [ip]
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  28:	0a000059 	beq	194 <arm_cmplx_mult_cmplx_f32_dot4+0x194>
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot4(
+  2c:	e2403001 	sub	r3, r0, #1
+  30:	eddf5a5a 	vldr	s11, [pc, #360]	; 1a0 <arm_cmplx_mult_cmplx_f32_dot4+
+0x1a0>
+
+  34:	e3530003 	cmp	r3, #3
+  38:	9a000050 	bls	180 <arm_cmplx_mult_cmplx_f32_dot4+0x180>
+  3c:	e2847020 	add	r7, r4, #32
+  40:	e28c8020 	add	r8, ip, #32
+  44:	e2846004 	add	r6, r4, #4
+  48:	e28c5004 	add	r5, ip, #4
+  4c:	e2844008 	add	r4, r4, #8
+  50:	e28cc008 	add	ip, ip, #8
+
+  blkCnt = numSamples;
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+  54:	eeb05a65 	vmov.f32	s10, s11
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+  58:	ed954a00 	vldr	s8, [r5]
+  5c:	e2866020 	add	r6, r6, #32
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+  60:	edd48a02 	vldr	s17, [r4, #8]
+  64:	e28cc020 	add	ip, ip, #32
+    c = *pSrcB++;
+    d = *pSrcB++;
+  68:	ed1c8a06 	vldr	s16, [ip, #-24]	; 0xffffffe8
+  6c:	e2844020 	add	r4, r4, #32
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+  70:	ed564a08 	vldr	s9, [r6, #-32]	; 0xffffffe0
+  74:	e2855020 	add	r5, r5, #32
+  78:	ed141a08 	vldr	s2, [r4, #-32]	; 0xffffffe0
+  7c:	e2403005 	sub	r3, r0, #5
+    c = *pSrcB++;
+    d = *pSrcB++;
+  80:	ed1c9a08 	vldr	s18, [ip, #-32]	; 0xffffffe0
+  84:	e3530003 	cmp	r3, #3
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+  88:	ee247a26 	vmul.f32	s14, s8, s13
+
+    /* Decrement the numSamples loop counter */
+    blkCnt--;
+  8c:	e2401004 	sub	r1, r0, #4
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  90:	ee687a28 	vmul.f32	s15, s16, s17
+  94:	f5d7f044 	pld	[r7, #68]	; 0x44
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+  98:	ed152a06 	vldr	s4, [r5, #-24]	; 0xffffffe8
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+  9c:	e1a02007 	mov	r2, r7
+  a0:	ed562a06 	vldr	s5, [r6, #-24]	; 0xffffffe8
+    c = *pSrcB++;
+    d = *pSrcB++;
+  a4:	e1a03008 	mov	r3, r8
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+  a8:	ee047a86 	vmla.f32	s14, s9, s12
+  ac:	e2877020 	add	r7, r7, #32
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  b0:	ee497a01 	vmla.f32	s15, s18, s2
+  b4:	e2888020 	add	r8, r8, #32
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+  b8:	ed541a04 	vldr	s3, [r4, #-16]
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+
+    /* Decrement the numSamples loop counter */
+    blkCnt--;
+  bc:	e1a00001 	mov	r0, r1
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+  c0:	ed5c3a04 	vldr	s7, [ip, #-16]
+  c4:	ed150a04 	vldr	s0, [r5, #-16]
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+  c8:	ed163a02 	vldr	s6, [r6, #-8]
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+  cc:	ee027a01 	vmla.f32	s14, s4, s2
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  d0:	ee467a26 	vmla.f32	s15, s12, s13
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+  d4:	ed151a02 	vldr	s2, [r5, #-8]
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+  d8:	ed560a04 	vldr	s1, [r6, #-16]
+  dc:	ed546a02 	vldr	s13, [r4, #-8]
+    c = *pSrcB++;
+    d = *pSrcB++;
+  e0:	ed1c6a02 	vldr	s12, [ip, #-8]
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+  e4:	ee027a89 	vmla.f32	s14, s5, s18
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  e8:	ee437aa1 	vmla.f32	s15, s7, s3
+    sum_img += ((a * d) + (b * c));
+  ec:	ee007a28 	vmla.f32	s14, s0, s17
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  f0:	ee417a43 	vmls.f32	s15, s2, s6
+    sum_img += ((a * d) + (b * c));
+  f4:	ee007a88 	vmla.f32	s14, s1, s16
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  f8:	ee407a60 	vmls.f32	s15, s0, s1
+    sum_img += ((a * d) + (b * c));
+  fc:	ee017a21 	vmla.f32	s14, s2, s3
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+ 100:	ee427a62 	vmls.f32	s15, s4, s5
+    sum_img += ((a * d) + (b * c));
+ 104:	ee037a23 	vmla.f32	s14, s6, s7
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+ 108:	ee447a64 	vmls.f32	s15, s8, s9
+    sum_img += ((a * d) + (b * c));
+ 10c:	ee755a87 	vadd.f32	s11, s11, s14
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+ 110:	ee355a27 	vadd.f32	s10, s10, s15
+ 114:	8affffcf 	bhi	58 <arm_cmplx_mult_cmplx_f32_dot4+0x58>
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot4(
+ 118:	e2822004 	add	r2, r2, #4
+ 11c:	e2833004 	add	r3, r3, #4
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+ 120:	edd24a00 	vldr	s9, [r2]
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+ 124:	e2511001 	subs	r1, r1, #1
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+ 128:	edd37a00 	vldr	s15, [r3]
+ 12c:	e2822008 	add	r2, r2, #8
+ 130:	e2833008 	add	r3, r3, #8
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+ 134:	ee277aa6 	vmul.f32	s14, s15, s13
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+ 138:	ee677aa4 	vmul.f32	s15, s15, s9
+    sum_img += ((a * d) + (b * c));
+ 13c:	ee047a86 	vmla.f32	s14, s9, s12
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+ 140:	ee567a26 	vnmls.f32	s15, s12, s13
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+ 144:	ed526a01 	vldr	s13, [r2, #-4]
+    c = *pSrcB++;
+    d = *pSrcB++;
+ 148:	ed136a01 	vldr	s12, [r3, #-4]
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+ 14c:	ee755a87 	vadd.f32	s11, s11, s14
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+ 150:	ee355a27 	vadd.f32	s10, s10, s15
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+ 154:	1afffff1 	bne	120 <arm_cmplx_mult_cmplx_f32_dot4+0x120>
+
+    /* Decrement the numSamples loop counter */
+    blkCnt--;
+  }
+
+	*pDst++=sum_real;
+ 158:	ed8d5a00 	vstr	s10, [sp]
+ 15c:	e3003000 	movw	r3, #0
+			15c: R_ARM_MOVW_ABS_NC	gf_sum_dsp_concept4
+ 160:	edcd5a01 	vstr	s11, [sp, #4]
+ 164:	e3403000 	movt	r3, #0
+			164: R_ARM_MOVT_ABS	gf_sum_dsp_concept4
+ 168:	eddd0b00 	vldr	d16, [sp]
+ 16c:	f443078f 	vst1.32	{d16}, [r3]
+	*pDst++=sum_img;
+
+}
+ 170:	e28dd00c 	add	sp, sp, #12
+ 174:	ecbd8b04 	vpop	{d8-d9}
+ 178:	e8bd01f0 	pop	{r4, r5, r6, r7, r8}
+ 17c:	e12fff1e 	bx	lr
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot4(
+ 180:	e1a01000 	mov	r1, r0
+ 184:	e1a0300c 	mov	r3, ip
+ 188:	e1a02004 	mov	r2, r4
+ 18c:	eeb05a65 	vmov.f32	s10, s11
+ 190:	eaffffe0 	b	118 <arm_cmplx_mult_cmplx_f32_dot4+0x118>
+  blkCnt = numSamples;
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+ 194:	eddf5a01 	vldr	s11, [pc, #4]	; 1a0 <arm_cmplx_mult_cmplx_f32_dot4+0x1a0>
+
+  blkCnt = numSamples;
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output 
+samples here.     
+
+   ** No intrinsics is used. */
+  sum_real =0;
+ 198:	eeb05a65 	vmov.f32	s10, s11
+ 19c:	eaffffed 	b	158 <arm_cmplx_mult_cmplx_f32_dot4+0x158>
+ 1a0:	00000000 	.word	0x00000000
+

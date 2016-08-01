@@ -1,0 +1,177 @@
+
+C:\xilinx\projects\zynq146\zc706_predefined_0902\neon_vector_498_test\Debug\src\arm_cmplx_mult_cmplx_f32_dot3b_no_rest_data.o:     file format elf32-littlearm
+C:\xilinx\projects\zynq146\zc706_predefined_0902\neon_vector_498_test\Debug\src\arm_cmplx_mult_cmplx_f32_dot3b_no_rest_data.o
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+
+00000000 g     F .text	000000e4 arm_cmplx_mult_cmplx_f32_dot3b
+00000000         *UND*	00000000 gf_sum_dsp_concept2
+00000000         *UND*	00000000 gf_array_src_a
+00000000         *UND*	00000000 gf_array_src_b
+
+
+
+Disassembly of section .text:
+
+00000000 <arm_cmplx_mult_cmplx_f32_dot3b>:
+  blkCnt = numSamples >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+   0:	e1b00120 	lsrs	r0, r0, #2
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vdupq_n_f32 (float32_t __a)
+{
+  return (float32x4_t)__builtin_neon_vdup_nv4sf ((__builtin_neon_sf) __a);
+   4:	f2c08050 	vmov.i32	q12, #0	; 0x00000000
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot3b(
+  unsigned int numSamples )
+{
+   8:	e24dd020 	sub	sp, sp, #32
+   c:	f268e1f8 	vorr	q15, q12, q12
+  10:	f268c1f8 	vorr	q14, q12, q12
+  14:	f268a1f8 	vorr	q13, q12, q12
+  blkCnt = numSamples >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+  18:	0a000011 	beq	64 <arm_cmplx_mult_cmplx_f32_dot3b+0x64>
+  1c:	e59f20b8 	ldr	r2, [pc, #184]	; dc <arm_cmplx_mult_cmplx_f32_dot3b+0xdc>
+  20:	e59f30b8 	ldr	r3, [pc, #184]	; e0 <arm_cmplx_mult_cmplx_f32_dot3b+0xe0>
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vld1q_f32 (const float32_t * __a)
+{
+  return (float32x4_t)__builtin_neon_vld1v4sf ((const __builtin_neon_sf *) __a);
+  24:	e242c010 	sub	ip, r2, #16
+  28:	e2431010 	sub	r1, r3, #16
+  2c:	f4626a8f 	vld1.32	{d22-d23}, [r2]
+  30:	e2500001 	subs	r0, r0, #1
+  34:	e2822020 	add	r2, r2, #32
+  38:	f4630a8f 	vld1.32	{d16-d17}, [r3]
+  3c:	e2833020 	add	r3, r3, #32
+  40:	f46c2a8f 	vld1.32	{d18-d19}, [ip]
+  44:	f4614a8f 	vld1.32	{d20-d21}, [r1]
+__extension__ static __inline float32x4x2_t __attribute__ ((__always_inline__))
+vuzpq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  float32x4x2_t __rv;
+  __builtin_neon_vuzpv4sf (&__rv.val[0], __a, __b);
+  return __rv;
+  48:	f3fa2166 	vuzp.32	q9, q11
+  4c:	f3fa4160 	vuzp.32	q10, q8
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vmlaq_f32 (float32x4_t __a, float32x4_t __b, float32x4_t __c)
+{
+  return (float32x4_t)__builtin_neon_vmlav4sf (__a, __b, __c, 3);
+  50:	f2428df4 	vmla.f32	q12, q9, q10
+  54:	f246edf0 	vmla.f32	q15, q11, q8
+  58:	f246cdf4 	vmla.f32	q14, q11, q10
+  5c:	f242adf0 	vmla.f32	q13, q9, q8
+  60:	1affffef 	bne	24 <arm_cmplx_mult_cmplx_f32_dot3b+0x24>
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vsubq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vsubv4sf (__a, __b, 3);
+  64:	f2688dee 	vsub.f32	q12, q12, q15
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+
+	*pDst++=sum_real;
+  68:	e3003000 	movw	r3, #0
+			68: R_ARM_MOVW_ABS_NC	gf_sum_dsp_concept2
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vaddq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vaddv4sf (__a, __b, 3);
+  6c:	f24cadea 	vadd.f32	q13, q14, q13
+  70:	e3403000 	movt	r3, #0
+			70: R_ARM_MOVT_ABS	gf_sum_dsp_concept2
+}
+
+__extension__ static __inline float32_t __attribute__ ((__always_inline__))
+vgetq_lane_f32 (float32x4_t __a, const int __b)
+{
+  return (float32_t)__builtin_neon_vget_lanev4sf (__a, __b, 3);
+  74:	ee182b90 	vmov.32	r2, d24[0]
+  78:	ee072a10 	vmov	s14, r2
+  7c:	ee382b90 	vmov.32	r2, d24[1]
+  80:	ee062a10 	vmov	s12, r2
+  84:	ee1a2b90 	vmov.32	r2, d26[0]
+  /* add real*imaginary result with imaginary*real result 4 at a time */
+  out1.val[1] = vaddq_f32(C3, C4);
+  acc1.val[0] = vaddq_f32(out1.val[0], acc1.val[0]);  /* add by Hank */
+  acc1.val[1] = vaddq_f32(out1.val[1], acc1.val[1]); /* add by Hank */
+
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+  88:	ee367a07 	vadd.f32	s14, s12, s14
+  8c:	ee072a90 	vmov	s15, r2
+  90:	ee3a2b90 	vmov.32	r2, d26[1]
+  94:	ee062a90 	vmov	s13, r2
+  98:	ee192b90 	vmov.32	r2, d25[0]
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+  9c:	ee767aa7 	vadd.f32	s15, s13, s15
+  a0:	ee062a10 	vmov	s12, r2
+  a4:	ee1b2b90 	vmov.32	r2, d27[0]
+  out1.val[1] = vaddq_f32(C3, C4);
+  acc1.val[0] = vaddq_f32(out1.val[0], acc1.val[0]);  /* add by Hank */
+  acc1.val[1] = vaddq_f32(out1.val[1], acc1.val[1]); /* add by Hank */
+
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+  a8:	ee377a06 	vadd.f32	s14, s14, s12
+  ac:	ee062a90 	vmov	s13, r2
+  b0:	ee392b90 	vmov.32	r2, d25[1]
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+  b4:	ee777aa6 	vadd.f32	s15, s15, s13
+  b8:	ee062a10 	vmov	s12, r2
+  bc:	ee3b2b90 	vmov.32	r2, d27[1]
+  /* add real*imaginary result with imaginary*real result 4 at a time */
+  out1.val[1] = vaddq_f32(C3, C4);
+  acc1.val[0] = vaddq_f32(out1.val[0], acc1.val[0]);  /* add by Hank */
+  acc1.val[1] = vaddq_f32(out1.val[1], acc1.val[1]); /* add by Hank */
+
+	sum_real = vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+  c0:	ee377a06 	vadd.f32	s14, s14, s12
+  c4:	ee062a90 	vmov	s13, r2
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img = vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+  c8:	ee777aa6 	vadd.f32	s15, s15, s13
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+
+	*pDst++=sum_real;
+  cc:	ed837a00 	vstr	s14, [r3]
+	*pDst++=sum_img;
+  d0:	edc37a01 	vstr	s15, [r3, #4]
+
+}
+  d4:	e28dd020 	add	sp, sp, #32
+  d8:	e12fff1e 	bx	lr
+  dc:	00000010 	.word	0x00000010
+			dc: R_ARM_ABS32	gf_array_src_a
+  e0:	00000010 	.word	0x00000010
+			e0: R_ARM_ABS32	gf_array_src_b
+

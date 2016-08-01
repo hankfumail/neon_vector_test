@@ -1,0 +1,78 @@
+
+
+17:11:56 **** Auto Build of configuration Debug for project neon_vector_498_test ****
+make all 
+'Building file: ../src/arm_cmplx_conj_test_data.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_conj_test_data.d" -MT"src/arm_cmplx_conj_test_data.d" -o "src/arm_cmplx_conj_test_data.o" "../src/arm_cmplx_conj_test_data.c"
+'Finished building: ../src/arm_cmplx_conj_test_data.c'
+' '
+'Building file: ../src/arm_cmplx_dot_prod_f32.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_dot_prod_f32.d" -MT"src/arm_cmplx_dot_prod_f32.d" -o "src/arm_cmplx_dot_prod_f32.o" "../src/arm_cmplx_dot_prod_f32.c"
+'Finished building: ../src/arm_cmplx_dot_prod_f32.c'
+' '
+'Building file: ../src/arm_cmplx_dot_prod_f32_test.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_dot_prod_f32_test.d" -MT"src/arm_cmplx_dot_prod_f32_test.d" -o "src/arm_cmplx_dot_prod_f32_test.o" "../src/arm_cmplx_dot_prod_f32_test.c"
+'Finished building: ../src/arm_cmplx_dot_prod_f32_test.c'
+' '
+'Building file: ../src/arm_cmplx_dot_prod_test_data.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_dot_prod_test_data.d" -MT"src/arm_cmplx_dot_prod_test_data.d" -o "src/arm_cmplx_dot_prod_test_data.o" "../src/arm_cmplx_dot_prod_test_data.c"
+'Finished building: ../src/arm_cmplx_dot_prod_test_data.c'
+' '
+'Building file: ../src/arm_cmplx_mult_cmplx_f32.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_mult_cmplx_f32.d" -MT"src/arm_cmplx_mult_cmplx_f32.d" -o "src/arm_cmplx_mult_cmplx_f32.o" "../src/arm_cmplx_mult_cmplx_f32.c"
+'Finished building: ../src/arm_cmplx_mult_cmplx_f32.c'
+' '
+'Building file: ../src/arm_cmplx_mult_cmplx_f32_dot.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_mult_cmplx_f32_dot.d" -MT"src/arm_cmplx_mult_cmplx_f32_dot.d" -o "src/arm_cmplx_mult_cmplx_f32_dot.o" "../src/arm_cmplx_mult_cmplx_f32_dot.c"
+'Finished building: ../src/arm_cmplx_mult_cmplx_f32_dot.c'
+' '
+'Building file: ../src/arm_cmplx_vector_dot_prod.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_vector_dot_prod.d" -MT"src/arm_cmplx_vector_dot_prod.d" -o "src/arm_cmplx_vector_dot_prod.o" "../src/arm_cmplx_vector_dot_prod.c"
+'Finished building: ../src/arm_cmplx_vector_dot_prod.c'
+' '
+'Building file: ../src/arm_cmplx_vector_dot_prod_data.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_cmplx_vector_dot_prod_data.d" -MT"src/arm_cmplx_vector_dot_prod_data.d" -o "src/arm_cmplx_vector_dot_prod_data.o" "../src/arm_cmplx_vector_dot_prod_data.c"
+'Finished building: ../src/arm_cmplx_vector_dot_prod_data.c'
+' '
+'Building file: ../src/arm_vector_test.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/arm_vector_test.d" -MT"src/arm_vector_test.d" -o "src/arm_vector_test.o" "../src/arm_vector_test.c"
+'Finished building: ../src/arm_vector_test.c'
+' '
+'Building file: ../src/func_measure_time.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/func_measure_time.d" -MT"src/func_measure_time.d" -o "src/func_measure_time.o" "../src/func_measure_time.c"
+'Finished building: ../src/func_measure_time.c'
+' '
+'Building file: ../src/math_helper.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/math_helper.d" -MT"src/math_helper.d" -o "src/math_helper.o" "../src/math_helper.c"
+'Finished building: ../src/math_helper.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM gcc compiler'
+arm-xilinx-eabi-gcc -Wall -O3 -mcpu=cortex-a9 -Wall -O3  -g -c -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -mvectorize-with-neon-quad -g3 -c -fmessage-length=0 -I../../neon_vector_498_test_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: neon_vector_498_test.elf'
+'Invoking: ARM gcc linker'
+arm-xilinx-eabi-gcc -Wl,-T -Wl,../src/lscript.ld -L../../neon_vector_498_test_bsp/ps7_cortexa9_0/lib -o "neon_vector_498_test.elf"  ./src/arm_cmplx_conj_test_data.o ./src/arm_cmplx_dot_prod_f32.o ./src/arm_cmplx_dot_prod_f32_test.o ./src/arm_cmplx_dot_prod_test_data.o ./src/arm_cmplx_mult_cmplx_f32.o ./src/arm_cmplx_mult_cmplx_f32_dot.o ./src/arm_cmplx_vector_dot_prod.o ./src/arm_cmplx_vector_dot_prod_data.o ./src/arm_vector_test.o ./src/func_measure_time.o ./src/math_helper.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: neon_vector_498_test.elf'
+' '
+'Invoking: ARM Print Size'
+arm-xilinx-eabi-size neon_vector_498_test.elf  |tee "neon_vector_498_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  80748	  99216	  29912	 209876	  333d4	neon_vector_498_test.elf
+'Finished building: neon_vector_498_test.elf.size'
+' '
+
+17:12:01 Build Finished (took 5s.344ms)
+

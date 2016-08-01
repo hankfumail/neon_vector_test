@@ -1,0 +1,661 @@
+
+
+00001000 g     O .ocm_low	00004000 gf_array_src_a
+00005000 g	   O .ocm_low	00004000 gf_array_src_b
+00009010 g	   O .ocm_low	00000008 gf_sum
+00009008 g	   O .ocm_low	00000008 gf_sum_dsp_concept2
+00009000 g	   O .ocm_low	00000008 gf_sum_dsp_concept
+
+00101d00 g     F .text	000001a4 sp_cmplx_vector_dot_mul
+; end: 00101ea4 
+
+001017cc g     F .text	00000534 arm_cmplx_mult_cmplx_f32_dot2
+; end: 00101d00 
+
+
+
+001017cc <arm_cmplx_mult_cmplx_f32_dot2>:
+void arm_cmplx_mult_cmplx_f32_dot2(
+  uint32_t numSamples )
+{
+  1017cc:	e92d0ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp}
+  1017d0:	ed2d8b10 	vpush	{d8-d15}
+  1017d4:	e24dd0d0 	sub	sp, sp, #208	; 0xd0
+  1017d8:	e58d00a8 	str	r0, [sp, #168]	; 0xa8
+  1017dc:	e1b00220 	lsrs	r0, r0, #4  /* Logical Shift Right (immediate)  */
+
+  1017e0:	f280c050 	vmov.i32	q6, #0	; 0x00000000
+  1017e4:	ed8dcb0a 	vstr	d12, [sp, #40]	; 0x28
+  1017e8:	ed8ddb0c 	vstr	d13, [sp, #48]	; 0x30
+  1017ec:	e58d00ac 	str	r0, [sp, #172]	; 0xac
+  1017f0:	ed8dcb0e 	vstr	d12, [sp, #56]	; 0x38
+  1017f4:	ed8ddb10 	vstr	d13, [sp, #64]	; 0x40
+  1017f8:	f22ce15c 	vorr	q7, q6, q6
+  1017fc:	ed8dcb12 	vstr	d12, [sp, #72]	; 0x48
+  101800:	ed8ddb14 	vstr	d13, [sp, #80]	; 0x50
+  101804:	ed8dcb16 	vstr	d12, [sp, #88]	; 0x58
+  101808:	ed8ddb18 	vstr	d13, [sp, #96]	; 0x60
+  10180c:	ed8dcb1a 	vstr	d12, [sp, #104]	; 0x68
+  101810:	ed8ddb1c 	vstr	d13, [sp, #112]	; 0x70
+  101814:	ed8dcb1e 	vstr	d12, [sp, #120]	; 0x78
+  101818:	ed8ddb20 	vstr	d13, [sp, #128]	; 0x80
+  10181c:	0a00012f 	beq	101ce0 <arm_cmplx_mult_cmplx_f32_dot2+0x514>
+  101820:	e59f14d0 	ldr	r1, [pc, #1232]	; 101cf8 <arm_cmplx_mult_cmplx_f32_dot2+0x52c>
+  101824:	e28d30b0 	add	r3, sp, #176	; 0xb0
+  101828:	e59f24cc 	ldr	r2, [pc, #1228]	; 101cfc <arm_cmplx_mult_cmplx_f32_dot2+0x530>
+  10182c:	ed8dcb22 	vstr	d12, [sp, #136]	; 0x88
+  101830:	ed8ddb24 	vstr	d13, [sp, #144]	; 0x90
+  101834:	f22ca15c 	vorr	q5, q6, q6
+  101838:	e58d0024 	str	r0, [sp, #36]	; 0x24
+  10183c:	e59d8024 	ldr	r8, [sp, #36]	; 0x24
+
+  101840:	e1a0c001 	mov	ip, r1
+  101844:	e2415010 	sub	r5, r1, #16
+  101848:	e1a00002 	mov	r0, r2
+  10184c:	e2424010 	sub	r4, r2, #16
+  101850:	f46c6a8d 	vld1.32	{d22-d23}, [ip]!
+  101854:	e281b020 	add	fp, r1, #32
+  101858:	e2829020 	add	r9, r2, #32
+  10185c:	f4652a8f 	vld1.32	{d18-d19}, [r5]
+  101860:	e2588001 	subs	r8, r8, #1
+  101864:	e2825040 	add	r5, r2, #64	; 0x40
+  101868:	e58d8024 	str	r8, [sp, #36]	; 0x24
+  10186c:	f4604a8d 	vld1.32	{d20-d21}, [r0]!
+  101870:	e281a030 	add	sl, r1, #48	; 0x30
+  101874:	e58d5000 	str	r5, [sp]
+  101878:	e2817050 	add	r7, r1, #80	; 0x50
+  10187c:	f4640a8f 	vld1.32	{d16-d17}, [r4]
+  101880:	e2816060 	add	r6, r1, #96	; 0x60
+  101884:	e2825050 	add	r5, r2, #80	; 0x50
+  101888:	e2824060 	add	r4, r2, #96	; 0x60
+
+
+  10188c:	f3fa2166 	vuzp.32	q9, q11
+  101890:	ecc32b04 	vstmia	r3, {d18-d19}
+  101894:	edc36b04 	vstr	d22, [r3, #16]
+  101898:	edc37b06 	vstr	d23, [r3, #24]
+  10189c:	eddd2b2c 	vldr	d18, [sp, #176]	; 0xb0
+  1018a0:	eddd3b2e 	vldr	d19, [sp, #184]	; 0xb8
+  1018a4:	edddab30 	vldr	d26, [sp, #192]	; 0xc0
+  1018a8:	edddbb32 	vldr	d27, [sp, #200]	; 0xc8
+
+  1018ac:	f46c8a8f 	vld1.32	{d24-d25}, [ip]
+  1018b0:	f46bea8f 	vld1.32	{d30-d31}, [fp]
+
+  1018b4:	f3fa0164 	vuzp.32	q8, q10
+  1018b8:	ecc30b04 	vstmia	r3, {d16-d17}
+  1018bc:	edc34b04 	vstr	d20, [r3, #16]
+  1018c0:	edc35b06 	vstr	d21, [r3, #24]
+
+  1018c4:	edddcb2c 	vldr	d28, [sp, #176]	; 0xb0
+  1018c8:	eddddb2e 	vldr	d29, [sp, #184]	; 0xb8
+  1018cc:	ed9dcb30 	vldr	d12, [sp, #192]	; 0xc0
+  1018d0:	ed9ddb32 	vldr	d13, [sp, #200]	; 0xc8
+
+  1018d4:	f4600a8f 	vld1.32	{d16-d17}, [r0]
+  1018d8:	e2810040 	add	r0, r1, #64	; 0x40
+
+  1018dc:	f3028dfc 	vmul.f32	q4, q9, q14
+  1018e0:	ed8d8b26 	vstr	d8, [sp, #152]	; 0x98
+  1018e4:	ed8d9b28 	vstr	d9, [sp, #160]	; 0xa0
+
+  1018e8:	f4694a8f 	vld1.32	{d20-d21}, [r9]
+  1018ec:	e2811080 	add	r1, r1, #128	; 0x80
+  1018f0:	f46a6a8f 	vld1.32	{d22-d23}, [sl]
+
+  1018f4:	f30aeddc 	vmul.f32	q7, q13, q6
+  1018f8:	f302cddc 	vmul.f32	q6, q9, q6
+
+
+  1018fc:	f3fa816e 	vuzp.32	q12, q15
+  101900:	edc3eb04 	vstr	d30, [r3, #16]
+  101904:	edc3fb06 	vstr	d31, [r3, #24]
+  101908:	ecc38b04 	vstmia	r3, {d24-d25}
+
+  10190c:	ed9d6b2c 	vldr	d6, [sp, #176]	; 0xb0
+  101910:	ed9d7b2e 	vldr	d7, [sp, #184]	; 0xb8
+  101914:	ed9d2b30 	vldr	d2, [sp, #192]	; 0xc0
+  101918:	ed9d3b32 	vldr	d3, [sp, #200]	; 0xc8
+
+  10191c:	f4608a8f 	vld1.32	{d24-d25}, [r0]
+  101920:	e2820030 	add	r0, r2, #48	; 0x30
+
+  101924:	f34aedfc 	vmul.f32	q15, q13, q14
+
+  101928:	e2822080 	add	r2, r2, #128	; 0x80
+
+  10192c:	f3fa0164 	vuzp.32	q8, q10
+  101930:	ecc30b04 	vstmia	r3, {d16-d17}
+  101934:	edc34b04 	vstr	d20, [r3, #16]
+  101938:	edc35b06 	vstr	d21, [r3, #24]
+
+  10193c:	e59d8000 	ldr	r8, [sp]
+
+  101940:	ed9d0b2c 	vldr	d0, [sp, #176]	; 0xb0
+  101944:	ed9d1b2e 	vldr	d1, [sp, #184]	; 0xb8
+
+  101948:	f4600a8f 	vld1.32	{d16-d17}, [r0]
+
+  10194c:	ed9d4b30 	vldr	d4, [sp, #192]	; 0xc0
+  101950:	ed9d5b32 	vldr	d5, [sp, #200]	; 0xc8
+
+  101954:	f3068d50 	vmul.f32	q4, q3, q0
+  101958:	f3066d54 	vmul.f32	q3, q3, q2
+
+  10195c:	f4684a8f 	vld1.32	{d20-d21}, [r8]
+
+  101960:	eccdeb04 	vstmia	sp, {d30-d31}
+
+  101964:	f3fa6168 	vuzp.32	q11, q12
+  101968:	ecc36b04 	vstmia	r3, {d22-d23}
+  10196c:	edc38b04 	vstr	d24, [r3, #16]
+  101970:	edc39b06 	vstr	d25, [r3, #24]
+
+  101974:	eddd8b2c 	vldr	d24, [sp, #176]	; 0xb0
+  101978:	eddd9b2e 	vldr	d25, [sp, #184]	; 0xb8
+  10197c:	edddcb30 	vldr	d28, [sp, #192]	; 0xc0
+  101980:	eddddb32 	vldr	d29, [sp, #200]	; 0xc8
+
+
+  101984:	f3fa0164 	vuzp.32	q8, q10
+  101988:	ecc30b04 	vstmia	r3, {d16-d17}
+  10198c:	edc34b04 	vstr	d20, [r3, #16]
+  101990:	edc35b06 	vstr	d21, [r3, #24]
+
+  101994:	ed8d8b04 	vstr	d8, [sp, #16]
+  101998:	ed8d9b06 	vstr	d9, [sp, #24]
+
+  10199c:	edddeb2c 	vldr	d30, [sp, #176]	; 0xb0
+  1019a0:	edddfb2e 	vldr	d31, [sp, #184]	; 0xb8
+  1019a4:	edddab30 	vldr	d26, [sp, #192]	; 0xc0
+  1019a8:	edddbb32 	vldr	d27, [sp, #200]	; 0xc8
+
+  1019ac:	f4670a8f 	vld1.32	{d16-d17}, [r7]
+
+  1019b0:	f3028d54 	vmul.f32	q4, q1, q2
+
+  1019b4:	f4664a8f 	vld1.32	{d20-d21}, [r6]
+
+  1019bc:	f30c4dfa 	vmul.f32	q2, q14, q13
+
+  1019c0:	f4646a8f 	vld1.32	{d22-d23}, [r4]
+
+
+  1019c4:	f3fa0164 	vuzp.32	q8, q10
+  1019c8:	ecc30b04 	vstmia	r3, {d16-d17}
+  1019cc:	edc34b04 	vstr	d20, [r3, #16]
+  1019d0:	edc35b06 	vstr	d21, [r3, #24]
+
+  1019d4:	eddd0b2c 	vldr	d16, [sp, #176]	; 0xb0
+  1019d8:	eddd1b2e 	vldr	d17, [sp, #184]	; 0xb8
+  1019dc:	eddd4b30 	vldr	d20, [sp, #192]	; 0xc0
+  1019e0:	eddd5b32 	vldr	d21, [sp, #200]	; 0xc8
+
+
+  1019e4:	f3fa2166 	vuzp.32	q9, q11
+  1019e8:	ecc32b04 	vstmia	r3, {d18-d19}
+  1019ec:	edc36b04 	vstr	d22, [r3, #16]
+  1019f0:	edc37b06 	vstr	d23, [r3, #24]
+
+  1019f4:	eddd6b2c 	vldr	d22, [sp, #176]	; 0xb0
+  1019f8:	eddd7b2e 	vldr	d23, [sp, #184]	; 0xb8
+  1019fc:	eddd2b30 	vldr	d18, [sp, #192]	; 0xc0
+  101a00:	eddd3b32 	vldr	d19, [sp, #200]	; 0xc8
+
+  101a04:	f3022d50 	vmul.f32	q1, q1, q0
+  101a08:	f34ccdfe 	vmul.f32	q14, q14, q15
+  101a0c:	f3080dfe 	vmul.f32	q0, q12, q15
+  101a10:	f340edf6 	vmul.f32	q15, q8, q11
+  101a14:	f3488dfa 	vmul.f32	q12, q12, q13
+  101a18:	f3400df2 	vmul.f32	q8, q8, q9
+  101a1c:	f344adf2 	vmul.f32	q13, q10, q9
+
+  101a20:	eddd2b26 	vldr	d18, [sp, #152]	; 0x98
+  101a24:	eddd3b28 	vldr	d19, [sp, #160]	; 0xa0
+
+  101a28:	f3444df6 	vmul.f32	q10, q10, q11
+
+  101a2c:	ecdd6b04 	vldmia	sp, {d22-d23}
+
+  101a30:	f222edce 	vsub.f32	q7, q9, q7
+  101a34:	eddd2b04 	vldr	d18, [sp, #16]
+  101a38:	eddd3b06 	vldr	d19, [sp, #24]
+
+  101a3c:	f206cdcc 	vadd.f32	q6, q11, q6
+  101a40:	eddd6b22 	vldr	d22, [sp, #136]	; 0x88
+  101a44:	eddd7b24 	vldr	d23, [sp, #144]	; 0x90
+
+  101a48:	f2228dc8 	vsub.f32	q4, q9, q4
+
+  101a4c:	f24ccde8 	vadd.f32	q14, q14, q12
+  101a50:	eddd8b0a 	vldr	d24, [sp, #40]	; 0x28
+  101a54:	eddd9b0c 	vldr	d25, [sp, #48]	; 0x30
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vsubq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vsubv4sf (__a, __b, 3);
+  101a58:	f26eadea 	vsub.f32	q13, q15, q13
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vaddq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vaddv4sf (__a, __b, 3);
+  101a5c:	edddeb0e 	vldr	d30, [sp, #56]	; 0x38
+  101a60:	edddfb10 	vldr	d31, [sp, #64]	; 0x40
+  101a64:	f2444de0 	vadd.f32	q10, q10, q8
+  101a68:	eddd0b16 	vldr	d16, [sp, #88]	; 0x58
+  101a6c:	eddd1b18 	vldr	d17, [sp, #96]	; 0x60
+  101a70:	f2022d46 	vadd.f32	q1, q1, q3
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vsubq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vsubv4sf (__a, __b, 3);
+  101a74:	f2204d44 	vsub.f32	q2, q0, q2
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vaddq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vaddv4sf (__a, __b, 3);
+  101a78:	f24c6d66 	vadd.f32	q11, q6, q11
+  101a7c:	edcd6b22 	vstr	d22, [sp, #136]	; 0x88
+  101a80:	edcd7b24 	vstr	d23, [sp, #144]	; 0x90
+  101a84:	f2488d68 	vadd.f32	q12, q4, q12
+  101a88:	ed9d8b12 	vldr	d8, [sp, #72]	; 0x48
+  101a8c:	ed9d9b14 	vldr	d9, [sp, #80]	; 0x50
+  101a90:	edcd8b0a 	vstr	d24, [sp, #40]	; 0x28
+  101a94:	edcd9b0c 	vstr	d25, [sp, #48]	; 0x30
+  101a98:	f242ed6e 	vadd.f32	q15, q1, q15
+  101a9c:	edcdeb0e 	vstr	d30, [sp, #56]	; 0x38
+  101aa0:	edcdfb10 	vstr	d31, [sp, #64]	; 0x40
+  101aa4:	f2048d48 	vadd.f32	q4, q2, q4
+  101aa8:	ed8d8b12 	vstr	d8, [sp, #72]	; 0x48
+  101aac:	ed8d9b14 	vstr	d9, [sp, #80]	; 0x50
+  101ab0:	f24c0de0 	vadd.f32	q8, q14, q8
+  101ab4:	edcd0b16 	vstr	d16, [sp, #88]	; 0x58
+  101ab8:	edcd1b18 	vstr	d17, [sp, #96]	; 0x60
+  101abc:	f20ead4a 	vadd.f32	q5, q7, q5
+  101ac0:	eddd2b1a 	vldr	d18, [sp, #104]	; 0x68
+  101ac4:	eddd3b1c 	vldr	d19, [sp, #112]	; 0x70
+  101ac8:	eddd6b1e 	vldr	d22, [sp, #120]	; 0x78
+  101acc:	eddd7b20 	vldr	d23, [sp, #128]	; 0x80
+  101ad0:	f24a2de2 	vadd.f32	q9, q13, q9
+  101ad4:	edcd2b1a 	vstr	d18, [sp, #104]	; 0x68
+  101ad8:	edcd3b1c 	vstr	d19, [sp, #112]	; 0x70
+  101adc:	f2446de6 	vadd.f32	q11, q10, q11
+  101ae0:	edcd6b1e 	vstr	d22, [sp, #120]	; 0x78
+  101ae4:	edcd7b20 	vstr	d23, [sp, #128]	; 0x80
+  101ae8:	1affff53 	bne	10183c <arm_cmplx_mult_cmplx_f32_dot2+0x70>
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+
+
+
+void arm_cmplx_mult_cmplx_f32_dot2(
+  101aec:	e59d00ac 	ldr	r0, [sp, #172]	; 0xac
+  101af0:	e3011000 	movw	r1, #4096	; 0x1000
+  101af4:	e3053000 	movw	r3, #20480	; 0x5000
+  101af8:	e3401000 	movt	r1, #0  ; r1, gf_array_src_a
+  101afc:	e3403000 	movt	r3, #0   ; r3, gf_array_src_b
+  101b00:	f22ac15a 	vorr	q6, q5, q5
+  101b04:	ed9deb22 	vldr	d14, [sp, #136]	; 0x88
+  101b08:	ed9dfb24 	vldr	d15, [sp, #144]	; 0x90
+  101b0c:	e1a02380 	lsl	r2, r0, #7
+  101b10:	e0821001 	add	r1, r2, r1
+  101b14:	e0822003 	add	r2, r2, r3
+    /* Decrement the numSamples loop counter */
+    blkCnt--;
+  }
+
+  blkCnt = numSamples & 15u;
+  blkCnt = blkCnt >> 2u;
+  101b18:	e59d30a8 	ldr	r3, [sp, #168]	; 0xa8
+  101b1c:	e7e17153 	ubfx	r7, r3, #2, #2
+
+  101b20:	e3570000 	cmp	r7, #0
+  101b24:	0a000028 	beq	101bcc <arm_cmplx_mult_cmplx_f32_dot2+0x400>
+  101b28:	e1a06002 	mov	r6, r2
+  101b2c:	e1a05001 	mov	r5, r1
+  101b30:	e1a04007 	mov	r4, r7
+  101b34:	e28d30b0 	add	r3, sp, #176	; 0xb0
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vld1q_f32 (const float32_t * __a)
+{
+  return (float32x4_t)__builtin_neon_vld1v4sf ((const __builtin_neon_sf *) __a);
+  101b38:	e1a0c005 	mov	ip, r5
+  101b3c:	e1a00006 	mov	r0, r6
+  101b40:	e2544001 	subs	r4, r4, #1
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot2(
+  101b44:	e2855020 	add	r5, r5, #32
+  101b48:	f46c0a8d 	vld1.32	{d16-d17}, [ip]!
+  101b4c:	e2866020 	add	r6, r6, #32
+  101b50:	f4602a8d 	vld1.32	{d18-d19}, [r0]!
+  101b54:	f46c4a8f 	vld1.32	{d20-d21}, [ip]
+  101b58:	f4606a8f 	vld1.32	{d22-d23}, [r0]
+
+__extension__ static __inline float32x4x2_t __attribute__ ((__always_inline__))
+vuzpq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  float32x4x2_t __rv;
+  __builtin_neon_vuzpv4sf (&__rv.val[0], __a, __b);
+  101b5c:	f3fa0164 	vuzp.32	q8, q10
+  101b60:	ecc30b04 	vstmia	r3, {d16-d17}
+  101b64:	edc34b04 	vstr	d20, [r3, #16]
+  101b68:	edc35b06 	vstr	d21, [r3, #24]
+  return __rv;
+  101b6c:	eddd0b2c 	vldr	d16, [sp, #176]	; 0xb0
+  101b70:	eddd1b2e 	vldr	d17, [sp, #184]	; 0xb8
+  101b74:	eddd4b30 	vldr	d20, [sp, #192]	; 0xc0
+  101b78:	eddd5b32 	vldr	d21, [sp, #200]	; 0xc8
+
+__extension__ static __inline float32x4x2_t __attribute__ ((__always_inline__))
+vuzpq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  float32x4x2_t __rv;
+  __builtin_neon_vuzpv4sf (&__rv.val[0], __a, __b);
+  101b7c:	f3fa2166 	vuzp.32	q9, q11
+  101b80:	ecc32b04 	vstmia	r3, {d18-d19}
+  101b84:	edc36b04 	vstr	d22, [r3, #16]
+  101b88:	edc37b06 	vstr	d23, [r3, #24]
+  return __rv;
+  101b8c:	eddd6b2c 	vldr	d22, [sp, #176]	; 0xb0
+  101b90:	eddd7b2e 	vldr	d23, [sp, #184]	; 0xb8
+  101b94:	eddd2b30 	vldr	d18, [sp, #192]	; 0xc0
+  101b98:	eddd3b32 	vldr	d19, [sp, #200]	; 0xc8
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vmulq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vmulv4sf (__a, __b, 3);
+  101b9c:	f340adf6 	vmul.f32	q13, q8, q11
+  101ba0:	f3448df2 	vmul.f32	q12, q10, q9
+  101ba4:	f3400df2 	vmul.f32	q8, q8, q9
+  101ba8:	f3444df6 	vmul.f32	q10, q10, q11
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vsubq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vsubv4sf (__a, __b, 3);
+  101bac:	f26a8de8 	vsub.f32	q12, q13, q12
+}
+
+__extension__ static __inline float32x4_t __attribute__ ((__always_inline__))
+vaddq_f32 (float32x4_t __a, float32x4_t __b)
+{
+  return (float32x4_t)__builtin_neon_vaddv4sf (__a, __b, 3);
+  101bb0:	f2440de0 	vadd.f32	q8, q10, q8
+  101bb4:	f208cdcc 	vadd.f32	q6, q12, q6
+  101bb8:	f200edce 	vadd.f32	q7, q8, q7
+  blkCnt = blkCnt >> 2u;
+
+  /* If the blockSize is not a multiple of 16, compute remaining output samples.     
+   ** Compute multiple of 4 samples at a time in second loop.  
+   ** and remaining 1 to 3 samples in third loop. */
+  while(blkCnt > 0u)
+  101bbc:	1affffdd 	bne	101b38 <arm_cmplx_mult_cmplx_f32_dot2+0x36c>
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot2(
+  101bc0:	e1a07287 	lsl	r7, r7, #5
+  101bc4:	e0811007 	add	r1, r1, r7
+  101bc8:	e0822007 	add	r2, r2, r7
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  101bcc:	e59d50a8 	ldr	r5, [sp, #168]	; 0xa8
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+    sum_img += ((a * d) + (b * c));
+  101bd0:	ed9f5a47 	vldr	s10, [pc, #284]	; 101cf4 <arm_cmplx_mult_cmplx_f32_dot2+0x528>
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  101bd4:	e2153003 	ands	r3, r5, #3
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  101bd8:	eef04a45 	vmov.f32	s9, s10
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  101bdc:	0a00000d 	beq	101c18 <arm_cmplx_mult_cmplx_f32_dot2+0x44c>
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot2(
+  101be0:	e2822008 	add	r2, r2, #8
+  sum_img =0;
+  while(blkCnt > 0u)
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+  101be4:	edd15a00 	vldr	s11, [r1]
+    b = *pSrcA++;
+  101be8:	ed916a01 	vldr	s12, [r1, #4]
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  101bec:	e2533001 	subs	r3, r3, #1
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+  101bf0:	ed527a01 	vldr	s15, [r2, #-4]
+ * @param[out]  *pDst  points to the output vector     
+ * @param[in]  numSamples number of complex samples in each vector     
+ * @return none.     
+ */
+// __INLINE
+void arm_cmplx_mult_cmplx_f32_dot2(
+  101bf4:	e2811008 	add	r1, r1, #8
+  {
+    /* C[2 * i] = A[2 * i] * B[2 * i] - A[2 * i + 1] * B[2 * i + 1].  */
+    /* C[2 * i + 1] = A[2 * i] * B[2 * i + 1] + A[2 * i + 1] * B[2 * i].  */
+    a = *pSrcA++;
+    b = *pSrcA++;
+    c = *pSrcB++;
+  101bf8:	ed526a02 	vldr	s13, [r2, #-8]
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  101bfc:	ee267a27 	vmul.f32	s14, s12, s15
+    sum_img += ((a * d) + (b * c));
+  101c00:	ee657aa7 	vmul.f32	s15, s11, s15
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  101c04:	ee157aa6 	vnmls.f32	s14, s11, s13
+    sum_img += ((a * d) + (b * c));
+  101c08:	ee467a26 	vmla.f32	s15, s12, s13
+    b = *pSrcA++;
+    c = *pSrcB++;
+    d = *pSrcB++;
+
+    /* store the result in the destination buffer. */
+    sum_real += ((a * c) - (b * d));
+  101c0c:	ee744a87 	vadd.f32	s9, s9, s14
+    sum_img += ((a * d) + (b * c));
+  101c10:	ee355a27 	vadd.f32	s10, s10, s15
+
+  /* If the blockSize is not a multiple of 4, compute any remaining output samples here.     
+   ** No intrinsics is used. */
+  sum_real =0;
+  sum_img =0;
+  while(blkCnt > 0u)
+  101c14:	1afffff1 	bne	101be0 <arm_cmplx_mult_cmplx_f32_dot2+0x414>
+  101c18:	ed9d8b0a 	vldr	d8, [sp, #40]	; 0x28
+  101c1c:	ed9d9b0c 	vldr	d9, [sp, #48]	; 0x30
+  101c20:	eddd0b0e 	vldr	d16, [sp, #56]	; 0x38
+  101c24:	eddd1b10 	vldr	d17, [sp, #64]	; 0x40
+  101c28:	f24c6d48 	vadd.f32	q11, q6, q4
+  101c2c:	eddd8b12 	vldr	d24, [sp, #72]	; 0x48
+  101c30:	eddd9b14 	vldr	d25, [sp, #80]	; 0x50
+  101c34:	f24e4d60 	vadd.f32	q10, q7, q8
+  101c38:	edddab1a 	vldr	d26, [sp, #104]	; 0x68
+  101c3c:	edddbb1c 	vldr	d27, [sp, #112]	; 0x70
+  101c40:	edddeb16 	vldr	d30, [sp, #88]	; 0x58
+  101c44:	edddfb18 	vldr	d31, [sp, #96]	; 0x60
+  101c48:	ed9d8b1e 	vldr	d8, [sp, #120]	; 0x78
+  101c4c:	ed9d9b20 	vldr	d9, [sp, #128]	; 0x80
+	sum_real += vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img += vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+
+	*pDst++=sum_real;
+  101c50:	e3093008 	movw	r3, #36872	; 0x9008
+  101c54:	f2482dea 	vadd.f32	q9, q12, q13
+  101c58:	e3403000 	movt	r3, #0
+  101c5c:	f24e0dc8 	vadd.f32	q8, q15, q4
+  101c60:	f2462de2 	vadd.f32	q9, q11, q9
+  101c64:	f2440de0 	vadd.f32	q8, q10, q8
+}
+
+__extension__ static __inline float32_t __attribute__ ((__always_inline__))
+vgetq_lane_f32 (float32x4_t __a, const int __b)
+{
+  return (float32_t)__builtin_neon_vget_lanev4sf (__a, __b, 3);
+  101c68:	ee120b90 	vmov.32	r0, d18[0]
+  101c6c:	ee105b90 	vmov.32	r5, d16[0]
+  101c70:	ee322b90 	vmov.32	r2, d18[1]
+  101c74:	ee308b90 	vmov.32	r8, d16[1]
+  101c78:	ee070a10 	vmov	s14, r0
+  101c7c:	ee075a90 	vmov	s15, r5
+  101c80:	ee062a10 	vmov	s12, r2
+  101c84:	ee068a90 	vmov	s13, r8
+	acc2.val[0] = vaddq_f32(acc3.val[0], acc4.val[0]);
+	acc2.val[1] = vaddq_f32(acc3.val[1], acc4.val[1]);
+	acc1.val[0] = vaddq_f32(acc1.val[0], acc2.val[0]);
+	acc1.val[1] = vaddq_f32(acc1.val[1], acc2.val[1]);
+
+	sum_real += vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+  101c88:	ee367a07 	vadd.f32	s14, s12, s14
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img += vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+  101c8c:	ee767aa7 	vadd.f32	s15, s13, s15
+  101c90:	ee130b90 	vmov.32	r0, d19[0]
+  101c94:	ee112b90 	vmov.32	r2, d17[0]
+  101c98:	ee060a10 	vmov	s12, r0
+  101c9c:	ee062a90 	vmov	s13, r2
+	acc2.val[1] = vaddq_f32(acc3.val[1], acc4.val[1]);
+	acc1.val[0] = vaddq_f32(acc1.val[0], acc2.val[0]);
+	acc1.val[1] = vaddq_f32(acc1.val[1], acc2.val[1]);
+
+	sum_real += vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+  101ca0:	ee377a06 	vadd.f32	s14, s14, s12
+	sum_img += vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+  101ca4:	ee777aa6 	vadd.f32	s15, s15, s13
+  101ca8:	ee335b90 	vmov.32	r5, d19[1]
+  101cac:	ee318b90 	vmov.32	r8, d17[1]
+  101cb0:	ee065a10 	vmov	s12, r5
+  101cb4:	ee068a90 	vmov	s13, r8
+	acc2.val[1] = vaddq_f32(acc3.val[1], acc4.val[1]);
+	acc1.val[0] = vaddq_f32(acc1.val[0], acc2.val[0]);
+	acc1.val[1] = vaddq_f32(acc1.val[1], acc2.val[1]);
+
+	sum_real += vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+  101cb8:	ee377a06 	vadd.f32	s14, s14, s12
+	sum_img += vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+  101cbc:	ee777aa6 	vadd.f32	s15, s15, s13
+	acc2.val[0] = vaddq_f32(acc3.val[0], acc4.val[0]);
+	acc2.val[1] = vaddq_f32(acc3.val[1], acc4.val[1]);
+	acc1.val[0] = vaddq_f32(acc1.val[0], acc2.val[0]);
+	acc1.val[1] = vaddq_f32(acc1.val[1], acc2.val[1]);
+
+	sum_real += vgetq_lane_f32(acc1.val[0], 0) + vgetq_lane_f32(acc1.val[0], 1)
+  101cc0:	ee774a24 	vadd.f32	s9, s14, s9
+		+ vgetq_lane_f32(acc1.val[0], 2) + vgetq_lane_f32(acc1.val[0], 3);
+	sum_img += vgetq_lane_f32(acc1.val[1], 0) + vgetq_lane_f32(acc1.val[1], 1)
+  101cc4:	ee375a85 	vadd.f32	s10, s15, s10
+		+ vgetq_lane_f32(acc1.val[1], 2) + vgetq_lane_f32(acc1.val[1], 3);
+
+	*pDst++=sum_real;
+  101cc8:	edc34a00 	vstr	s9, [r3]
+	*pDst++=sum_img;
+  101ccc:	ed835a01 	vstr	s10, [r3, #4]
+
+}
+  101cd0:	e28dd0d0 	add	sp, sp, #208	; 0xd0
+  101cd4:	ecbd8b10 	vpop	{d8-d15}
+  101cd8:	e8bd0ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp}
+  101cdc:	e12fff1e 	bx	lr
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  pSrcB = gf_array_src_b;
+  101ce0:	e3052000 	movw	r2, #20480	; 0x5000
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  101ce4:	e3011000 	movw	r1, #4096	; 0x1000
+  pSrcB = gf_array_src_b;
+  101ce8:	e3402000 	movt	r2, #0
+  
+  float32_t * pSrcA;
+  float32_t * pSrcB;
+  float32_t * pDst;
+  
+  pSrcA = gf_array_src_a;
+  101cec:	e3401000 	movt	r1, #0
+  101cf0:	eaffff88 	b	101b18 <arm_cmplx_mult_cmplx_f32_dot2+0x34c>
+  101cf4:	00000000 	.word	0x00000000
+  101cf8:	00001010 	.word	0x00001010
+  101cfc:	00005010 	.word	0x00005010
+
+00101d00 <sp_cmplx_vector_dot_mul>:

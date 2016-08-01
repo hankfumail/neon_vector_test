@@ -1,0 +1,126 @@
+CPU frequency: 666666687Hz=666MHz.
+Global Timer frequency: 333333343Hz=333MHz.
+Address of variable:gf_array_src_a is 0x00001000
+Address of variable:gf_array_src_a[0] is 0x00001000
+Address of variable:gf_array_src_b is 0x00005000
+Address of variable:gf_array_src_b[0] is 0x00005000
+Address of variable:gf_sum_dsp_concept is 0x00009000
+Address of variable:gf_sum_dsp_concept2 is 0x00009008
+Address of variable:gf_sum_dsp_concept3 is 0x00009010
+Address of variable:gf_sum_dsp_concept3a is 0x00009018
+Address of variable:gf_sum_dsp_concept3b is 0x00009020
+Address of variable:gf_sum_dsp_concept4 is 0x00009028
+Address of variable:gf_sum_dsp_concept5a is 0x00009030
+Address of variable:gf_sum_dsp_concept5b is 0x00009038
+Address of variable:gf_sum_asm_dot_4 is 0x00009040
+Address of variable:gf_sum_asm_dot_8 is 0x00009050
+Address of variable:gf_sum_asm_dot_16 is 0x00009060
+Address of variable:gf_sum_asm_dot_20 is 0x00009070
+Address of variable:gf_sum_asm_cmplx_dot_8 is 0x00009080
+Address of variable:gf_sum_asm_cmplx_dot_16 is 0x00009090
+Address of variable:gf_sum_asm_cmplx_dot_16a is 0x000090A0
+
+gf_array_src_a data:
+
+0x00e2197b  0x00c1d1d2  0x007c00e9  0x0043f479  
+0x006f73ec  0x00168985  0x01205b40  0x01415004  
+0x01296970  0x012e1d18  0x011dd4ec  0x00e2e383  
+0x007697a5  0x01195120  0x011f65c0  0x008d9ef1  gf_array_src_b data:
+
+0x067827b0  0x0719eb50  0x034c8960  0x08042290  
+0x0acd2240  0x053f2ed0  0x0416df80  0x01168b30  
+0x014fe728  0x067f24d0  0x04440688  0x07210058  
+0x0068d65e  0x01445a38  0x05c021b0  0x07c29e60  
+
+Begin to measure time for function:sp_cmplx_vector_dot_mul at 0x001034A0
+Test number:1000, test parameter:512=0x00000200
+It lasts 3353726 cycles, 10061 us, 0 second
+Result: real part:26224383114608640.000000, imaginary part:1197783090848595968.000000
+
+Begin to measure time for function:sp_cmplx_vector_dot_mul_dsp_concept at 0x001017AC
+Test number:1000, test parameter:512=0x00000200
+It lasts 7033029 cycles, 21099 us, 0 second
+Result: real part:26224378819641344.000000, imaginary part:1197782953409642496.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot2 at 0x001017CC
+Test number:1000, test parameter:512=0x00000200
+It lasts 7042743 cycles, 21128 us, 0 second
+Result: real part:26224378819641344.000000, imaginary part:1197782953409642496.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot2a at 0x00101D00
+Test number:1000, test parameter:512=0x00000200
+It lasts 4848319 cycles, 14544 us, 0 second
+Result: real part:26224378819641344.000000, imaginary part:1197782953409642496.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot3 at 0x001027D8
+Test number:1000, test parameter:512=0x00000200
+It lasts 2144167 cycles, 6432 us, 0 second
+Result: real part:0.000000, imaginary part:0.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot3a at 0x0010294C
+Test number:1000, test parameter:512=0x00000200
+It lasts 1891117 cycles, 5673 us, 0 second
+Result: real part:0.000000, imaginary part:0.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot3a at 0x0010294C
+Test number:1000, test parameter:512=0x00000200
+It lasts 1891051 cycles, 5673 us, 0 second
+Result: real part:0.000000, imaginary part:0.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot4 at 0x00102BA4
+Test number:1000, test parameter:512=0x00000200
+It lasts 3352843 cycles, 10058 us, 0 second
+Result: real part:26224383114608640.000000, imaginary part:1197783090848595968.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot5 at 0x00102D48
+Test number:1000, test parameter:512=0x00000200
+It lasts 2526714 cycles, 7580 us, 0 second
+Result: real part:26224378819641344.000000, imaginary part:1197783090848595968.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot5a at 0x0010309C
+Test number:1000, test parameter:512=0x00000200
+It lasts 1754693 cycles, 5264 us, 0 second
+Result: real part:0.000000, imaginary part:0.000000
+
+Begin to measure time for function:arm_cmplx_mult_cmplx_f32_dot5b at 0x001033B4
+Test number:1000, test parameter:512=0x00000200
+It lasts 970101 cycles, 2910 us, 0 second
+Result: real part:0.000000, imaginary part:0.000000
+
+Begin to measure time for function:asm_cmplx_dot_prod8 at 0x001043E0
+Test number:1000, test parameter:512=0x00000200
+It lasts 782169 cycles, 2346 us, 0 second
+Result: real part:3109028041326592.000000, imaginary part:608544226724020224.000000
+
+Begin to measure time for function:asm_cmplx_dot_prod16 at 0x00104400
+Test number:1000, test parameter:512=0x00000200
+It lasts 782060 cycles, 2346 us, 0 second
+Result: real part:3109028041326592.000000, imaginary part:608544226724020224.000000
+
+Begin to measure time for function:asm_cmplx_dot_prod16a at 0x00104420
+Test number:1000, test parameter:512=0x00000200
+It lasts 782053 cycles, 2346 us, 0 second
+Result: real part:3109028041326592.000000, imaginary part:608544226724020224.000000
+
+Begin to measure time for function:asm_dot_prod4 at 0x00104360
+Test number:1000, test parameter:2048=0x00000800
+It lasts 2825140 cycles, 8475 us, 0 second
+Result: result 1:2371252955950088192.000000, result 2:2371252955950088192.000000
+
+Begin to measure time for function:asm_dot_prod8 at 0x00104380
+Test number:1000, test parameter:2048=0x00000800
+It lasts 1931574 cycles, 5794 us, 0 second
+Result: result 1:2371253230827995136.000000, result 2:2371253230827995136.000000
+
+Begin to measure time for function:asm_dot_prod16 at 0x001043A0
+Test number:1000, test parameter:2048=0x00000800
+It lasts 1744106 cycles, 5232 us, 0 second
+Result: result 1:2371253230827995136.000000, result 2:2371253230827995136.000000
+
+Begin to measure time for function:asm_dot_prod20 at 0x001043C0
+Test number:1000, test parameter:2048=0x00000800
+It lasts 1826577 cycles, 5479 us, 0 second
+Result: result 1:2381739548100001792.000000, result 2:2381739548100001792.000000
+
+Float complex vecter dot production test is completed.
+

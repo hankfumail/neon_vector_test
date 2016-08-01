@@ -1,0 +1,413 @@
+
+
+00001000 g     O .ocm_low	00004000 gf_array_src_a
+00005000 g	   O .ocm_low	00004000 gf_array_src_b
+00009010 g	   O .ocm_low	00000008 gf_sum
+00009008 g	   O .ocm_low	00000008 gf_sum_dsp_concept2
+00009000 g	   O .ocm_low	00000008 gf_sum_dsp_concept
+
+00101d00 g     F .text	000001a4 sp_cmplx_vector_dot_mul
+; end: 00101ea4 
+
+001017cc g     F .text	00000534 arm_cmplx_mult_cmplx_f32_dot2
+; end: 00101d00 
+
+
+
+
+00101d00 <sp_cmplx_vector_dot_mul>:
+
+  101d00:	e92d07f0 	push	{r4, r5, r6, r7, r8, r9, sl}
+
+  101d04:	e305c000 	movw	ip, #20480	; 0x5000
+
+  101d08:	e3014000 	movw	r4, #4096	; 0x1000
+
+  101d0c:	e3d00001 	bics	r0, r0, #1
+
+  101d10:	e3404000 	movt	r4, #0  ; r4, gf_array_src_a
+
+  101d14:	e340c000 	movt	ip, #0 ; ip=r12, gf_array_src_b
+
+  101d18:	ed2d8b04 	vpush	{d8-d9}
+  101d1c:	e24dd00c 	sub	sp, sp, #12
+
+  101d20:	eddf5a5e 	vldr	s11, [pc, #376]	; 101ea0 <sp_cmplx_vector_dot_mul+0x1a0>
+	float	sum_img=0;
+
+	ui_vector_length = ui_vector_length&0xfffffffe;
+	//printf("ui_vector_length: %d\n\r", ui_vector_length);
+
+	p_a = gf_array_src_a;
+  101d24:	edd46a00 	vldr	s13, [r4]
+	p_b = gf_array_src_b;
+  101d28:	ed9c6a00 	vldr	s12, [ip]
+    for( j=0; j<ui_vector_length; j++ )
+  101d2c:	0a000059 	beq	101e98 <sp_cmplx_vector_dot_mul+0x198>
+  101d30:	e3500004 	cmp	r0, #4
+
+/*
+
+*/
+
+void  sp_cmplx_vector_dot_mul( unsigned int ui_vector_length )
+  101d34:	e2409003 	sub	r9, r0, #3
+  101d38:	9a000051 	bls	101e84 <sp_cmplx_vector_dot_mul+0x184>
+  101d3c:	e2847020 	add	r7, r4, #32
+  101d40:	e28ca020 	add	sl, ip, #32
+  101d44:	e2846004 	add	r6, r4, #4
+  101d48:	e28c5004 	add	r5, ip, #4
+  101d4c:	e2844008 	add	r4, r4, #8
+  101d50:	e28cc008 	add	ip, ip, #8
+	ui_vector_length = ui_vector_length&0xfffffffe;
+	//printf("ui_vector_length: %d\n\r", ui_vector_length);
+
+	p_a = gf_array_src_a;
+	p_b = gf_array_src_b;
+    for( j=0; j<ui_vector_length; j++ )
+  101d54:	e3a08000 	mov	r8, #0
+	float	*p_b;
+	float	a_real;
+	float	a_img;
+	float	b_real;
+	float	b_img;
+	float	sum_real=0;
+  101d58:	eeb05a65 	vmov.f32	s10, s11
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+  101d5c:	ed954a00 	vldr	s8, [r5]
+  101d60:	e2866020 	add	r6, r6, #32
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+  101d64:	edd48a02 	vldr	s17, [r4, #8]
+  101d68:	e28cc020 	add	ip, ip, #32
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+  101d6c:	ed1c8a06 	vldr	s16, [ip, #-24]	; 0xffffffe8
+  101d70:	e2844020 	add	r4, r4, #32
+    for( j=0; j<ui_vector_length; j++ )
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+  101d74:	ed564a08 	vldr	s9, [r6, #-32]	; 0xffffffe0
+  101d78:	e2855020 	add	r5, r5, #32
+		p_a++;
+  101d7c:	ed141a08 	vldr	s2, [r4, #-32]	; 0xffffffe0
+	ui_vector_length = ui_vector_length&0xfffffffe;
+	//printf("ui_vector_length: %d\n\r", ui_vector_length);
+
+	p_a = gf_array_src_a;
+	p_b = gf_array_src_b;
+    for( j=0; j<ui_vector_length; j++ )
+  101d80:	e2888004 	add	r8, r8, #4
+		a_img = *p_a;
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+  101d84:	ed1c9a08 	vldr	s18, [ip, #-32]	; 0xffffffe0
+  101d88:	e2881001 	add	r1, r8, #1
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+  101d8c:	ee247a26 	vmul.f32	s14, s8, s13
+  101d90:	e1590001 	cmp	r9, r1
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101d94:	ee687a28 	vmul.f32	s15, s16, s17
+  101d98:	f5d7f044 	pld	[r7, #68]	; 0x44
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+  101d9c:	ed152a06 	vldr	s4, [r5, #-24]	; 0xffffffe8
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+  101da0:	e1a02007 	mov	r2, r7
+    for( j=0; j<ui_vector_length; j++ )
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+  101da4:	ed562a06 	vldr	s5, [r6, #-24]	; 0xffffffe8
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+  101da8:	e1a0300a 	mov	r3, sl
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+  101dac:	ee047a86 	vmla.f32	s14, s9, s12
+  101db0:	e2877020 	add	r7, r7, #32
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101db4:	ee497a01 	vmla.f32	s15, s18, s2
+  101db8:	e28aa020 	add	sl, sl, #32
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+  101dbc:	ed541a04 	vldr	s3, [r4, #-16]
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+  101dc0:	ed5c3a04 	vldr	s7, [ip, #-16]
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+  101dc4:	ed150a04 	vldr	s0, [r5, #-16]
+    for( j=0; j<ui_vector_length; j++ )
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+  101dc8:	ed163a02 	vldr	s6, [r6, #-8]
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+  101dcc:	ee027a01 	vmla.f32	s14, s4, s2
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101dd0:	ee467a26 	vmla.f32	s15, s12, s13
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+  101dd4:	ed151a02 	vldr	s2, [r5, #-8]
+    for( j=0; j<ui_vector_length; j++ )
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+  101dd8:	ed560a04 	vldr	s1, [r6, #-16]
+		p_a++;
+  101ddc:	ed546a02 	vldr	s13, [r4, #-8]
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+  101de0:	ed1c6a02 	vldr	s12, [ip, #-8]
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+  101de4:	ee027a89 	vmla.f32	s14, s5, s18
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101de8:	ee437aa1 	vmla.f32	s15, s7, s3
+    	sum_img += a_real*b_img+a_img*b_real;
+  101dec:	ee007a28 	vmla.f32	s14, s0, s17
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101df0:	ee417a43 	vmls.f32	s15, s2, s6
+    	sum_img += a_real*b_img+a_img*b_real;
+  101df4:	ee007a88 	vmla.f32	s14, s1, s16
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101df8:	ee407a60 	vmls.f32	s15, s0, s1
+    	sum_img += a_real*b_img+a_img*b_real;
+  101dfc:	ee017a21 	vmla.f32	s14, s2, s3
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101e00:	ee427a62 	vmls.f32	s15, s4, s5
+    	sum_img += a_real*b_img+a_img*b_real;
+  101e04:	ee037a23 	vmla.f32	s14, s6, s7
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101e08:	ee447a64 	vmls.f32	s15, s8, s9
+    	sum_img += a_real*b_img+a_img*b_real;
+  101e0c:	ee755a87 	vadd.f32	s11, s11, s14
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101e10:	ee355a27 	vadd.f32	s10, s10, s15
+  101e14:	8affffd0 	bhi	101d5c <sp_cmplx_vector_dot_mul+0x5c>
+
+/*
+
+*/
+
+void  sp_cmplx_vector_dot_mul( unsigned int ui_vector_length )
+  101e18:	e2822004 	add	r2, r2, #4
+  101e1c:	e2833004 	add	r3, r3, #4
+    for( j=0; j<ui_vector_length; j++ )
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+  101e20:	edd24a00 	vldr	s9, [r2]
+	ui_vector_length = ui_vector_length&0xfffffffe;
+	//printf("ui_vector_length: %d\n\r", ui_vector_length);
+
+	p_a = gf_array_src_a;
+	p_b = gf_array_src_b;
+    for( j=0; j<ui_vector_length; j++ )
+  101e24:	e1500001 	cmp	r0, r1
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+  101e28:	edd37a00 	vldr	s15, [r3]
+  101e2c:	e2822008 	add	r2, r2, #8
+  101e30:	e2833008 	add	r3, r3, #8
+  101e34:	e2811001 	add	r1, r1, #1
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+  101e38:	ee277aa6 	vmul.f32	s14, s15, s13
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101e3c:	ee677aa4 	vmul.f32	s15, s15, s9
+    	sum_img += a_real*b_img+a_img*b_real;
+  101e40:	ee047a86 	vmla.f32	s14, s9, s12
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101e44:	ee567a26 	vnmls.f32	s15, s12, s13
+    {
+		//(a+bi)(c+di) = a*c-bd  +(ad+bc)i
+		a_real = *p_a;
+		p_a++;
+		a_img = *p_a;
+		p_a++;
+  101e48:	ed526a01 	vldr	s13, [r2, #-4]
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+  101e4c:	ed136a01 	vldr	s12, [r3, #-4]
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+  101e50:	ee755a87 	vadd.f32	s11, s11, s14
+		p_a++;
+		b_real = *p_b;
+		p_b++;
+		b_img = *p_b;
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+  101e54:	ee355a27 	vadd.f32	s10, s10, s15
+	ui_vector_length = ui_vector_length&0xfffffffe;
+	//printf("ui_vector_length: %d\n\r", ui_vector_length);
+
+	p_a = gf_array_src_a;
+	p_b = gf_array_src_b;
+    for( j=0; j<ui_vector_length; j++ )
+  101e58:	8afffff0 	bhi	101e20 <sp_cmplx_vector_dot_mul+0x120>
+		p_b++;
+    	sum_real += a_real*b_real-a_img*b_img;
+    	sum_img += a_real*b_img+a_img*b_real;
+    }
+
+	gf_sum[0] = sum_real;
+  101e5c:	ed8d5a00 	vstr	s10, [sp]
+  101e60:	e3093010 	movw	r3, #36880	; 0x9010
+  101e64:	edcd5a01 	vstr	s11, [sp, #4]
+  101e68:	e3403000 	movt	r3, #0
+  101e6c:	eddd0b00 	vldr	d16, [sp]
+  101e70:	f443078f 	vst1.32	{d16}, [r3]
+	gf_sum[1] = sum_img;
+
+}
+  101e74:	e28dd00c 	add	sp, sp, #12
+  101e78:	ecbd8b04 	vpop	{d8-d9}
+  101e7c:	e8bd07f0 	pop	{r4, r5, r6, r7, r8, r9, sl}
+  101e80:	e12fff1e 	bx	lr
+
+/*
+
+*/
+
+void  sp_cmplx_vector_dot_mul( unsigned int ui_vector_length )
+  101e84:	e1a0300c 	mov	r3, ip
+  101e88:	e1a02004 	mov	r2, r4
+  101e8c:	e3a01001 	mov	r1, #1
+  101e90:	eeb05a65 	vmov.f32	s10, s11
+  101e94:	eaffffdf 	b	101e18 <sp_cmplx_vector_dot_mul+0x118>
+	float	*p_b;
+	float	a_real;
+	float	a_img;
+	float	b_real;
+	float	b_img;
+	float	sum_real=0;
+  101e98:	eeb05a65 	vmov.f32	s10, s11
+  101e9c:	eaffffee 	b	101e5c <sp_cmplx_vector_dot_mul+0x15c>
+  101ea0:	00000000 	.word	0x00000000
+
+00101ea4 <sp_cmplx_vector_init>:
+
